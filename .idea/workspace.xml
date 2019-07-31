@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a302935d-615c-42db-a1ab-327f2bf8dcea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GeoSearchList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeoSearchList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ItemCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SearchModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchModal.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,10 +31,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/UserGroup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="953">
-              <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+            <state relative-caret-position="903">
+              <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -46,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/store/auth.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -54,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ItineraryGrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="508">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -63,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="45" column="32" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="32" />
+            <state relative-caret-position="283">
+              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -78,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/GeoSearchList.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="108" selection-start-line="41" selection-start-column="100" selection-end-line="41" selection-end-column="108" />
+            <state relative-caret-position="600">
+              <caret line="40" column="108" selection-start-line="40" selection-start-column="100" selection-end-line="40" selection-end-column="108" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -87,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ItemCard.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="611">
-              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+              <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -133,8 +131,8 @@
         <option value="$PROJECT_DIR$/src/components/UserGroup.js" />
         <option value="$PROJECT_DIR$/src/helpers/APIs.js" />
         <option value="$PROJECT_DIR$/src/components/GeoSearchList.jsx" />
-        <option value="$PROJECT_DIR$/src/components/SearchModal.jsx" />
         <option value="$PROJECT_DIR$/src/components/ItemCard.jsx" />
+        <option value="$PROJECT_DIR$/src/components/SearchModal.jsx" />
       </list>
     </option>
   </component>
@@ -235,12 +233,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564594880165</updated>
-      <workItem from="1564594881550" duration="10985000" />
+      <workItem from="1564594881550" duration="12490000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10985000" />
+    <option name="totallyTimeSpent" value="12490000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="28" width="1603" height="965" extended-state="0" />
@@ -335,20 +333,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/UserGroup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="953">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ItineraryGrid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="508">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -358,24 +346,14 @@
     <entry file="file://$PROJECT_DIR$/src/store/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="45" column="32" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GeoSearchList.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="108" selection-start-line="41" selection-start-column="100" selection-end-line="41" selection-end-column="108" />
+        <state relative-caret-position="600">
+          <caret line="40" column="108" selection-start-line="40" selection-start-column="100" selection-end-line="40" selection-end-column="108" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -385,7 +363,27 @@
     <entry file="file://$PROJECT_DIR$/src/components/ItemCard.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="611">
-          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+          <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/UserGroup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
