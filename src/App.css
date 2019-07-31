@@ -22,11 +22,19 @@
 
 .App-usergroup {
   margin: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .App-usergroup-avatar {
   margin: 3px;
   cursor: pointer;
+}
+
+.App-usergroup-button.Ta-style {
+  background-color: var(--header-bg-color);
+  border-color: var(--header-bg-color);
 }
 
 .App-itinerary-container {
@@ -67,6 +75,7 @@
   font-size: 1em;
   box-shadow: -1px 1px 5px -2px;
   cursor: pointer;
+  width: 250px;
 }
 
 .App-itinerary-item > .card-body {

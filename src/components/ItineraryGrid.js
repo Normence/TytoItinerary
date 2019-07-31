@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Modal, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 import { faBed, faPlaneArrival, faUtensils, faMapMarkerAlt, faSubway } from '@fortawesome/free-solid-svg-icons'
@@ -13,14 +14,53 @@ const timeFormatter = dateObj => {
 }
 
 const CATEGORY = {
-    'Hotel': faBed,
-    'Flight': faPlaneArrival,
-    'Restaurant': faUtensils,
-    'Attraction': faMapMarkerAlt,
-    'Transportation': faSubway,
+    'hotel': faBed,
+    'flight': faPlaneArrival,
+    'restaurant': faUtensils,
+    'experience': faMapMarkerAlt,
+    'attraction': faMapMarkerAlt,
+    'transportation': faSubway,
+}
+
+const CenteredModal = props => {
+    const itemStartTime = !!props.selectedItem ? new Date(props.selectedItem.startTime) : null
+    const itemEndTime = !!props.selectedItem ? new Date(props.selectedItem.endTime) : null
+
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    <FontAwesomeIcon icon={!!props.selectedItem ? CATEGORY[props.selectedItem.category] : {}} />
+                    <span className="ml-3">{!!props.selectedItem && props.selectedItem.category.toUpperCase()}</span>
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <h4>Centered Modal</h4>
+                <p>Start Time: {itemStartTime && itemStartTime.toUTCString()}</p>
+                <p>End Time: {itemStartTime && itemEndTime.toUTCString()}</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+        </Modal>
+    )
 }
 
 class ItineraryGrid extends Component {
+    constructor(props){
+        super(props)
+
+        this.state = {
+            showModal: false,
+            selectedItem: null
+        }
+    }
+
     componentDidMount() {
         this.props.getItinerary()
     }
@@ -28,7 +68,7 @@ class ItineraryGrid extends Component {
     renderDayColumn(itinerary, itineraryDays, itineraryStartDate, itineraryEndDate) {
         const ret = []
 
-        for(let i = 0; i < 4; i++) {
+        for(let i = 0; i < itineraryDays; i++) {
             ret.push(<div className='card'>
                 <div className="card-header">Day {i+1}</div>
                 <div className="card-body">
@@ -51,18 +91,16 @@ class ItineraryGrid extends Component {
 
     renderItineraryItem(item) {
         const itemStartDatetime = new Date(item.startTime)
-        const categories = Object.keys(CATEGORY)
-        const categ = categories[Math.floor(Math.random() * categories.length)]
 
         return (
-            <div className='card App-itinerary-item' key={item.id}>
+            <div className='card App-itinerary-item' key={item.id} onClick={() => this.setState({ showModal: true, selectedItem: item })}>
                 <div className='card-body'>
                     <div className='row'>
                         <div className='col-4 App-itinerary-item-icon'>
-                            <FontAwesomeIcon icon={CATEGORY[categ]} />
+                            <FontAwesomeIcon icon={CATEGORY[item.category]} />
                         </div>
                         <div className='col-8'>
-                            <div>{categ}</div>
+                            <div>{item.category.toUpperCase()}</div>
                             <div><span>{item.name}</span></div>
                             <div>{timeFormatter(itemStartDatetime)}</div>
                         </div>
@@ -80,20 +118,27 @@ class ItineraryGrid extends Component {
         const itineraryDays = itineraryEndDate.getDate() - itineraryStartDate.getDate() + 1
 
         return (
-            <div className='App-itinerary-container'>
-                <div className='card-group'>
-                    <div className='card'>
-                        <div className='card-header'>{itinerary.name}</div>
-                        <div className='card-body'>
-                            <FontAwesomeIcon icon={faCalendarAlt} />
-                            <span>PLANNING</span>
+            <>
+                <CenteredModal
+                    show={this.state.showModal}
+                    onHide={() => this.setState({ showModal: false })}
+                    selectedItem={this.state.selectedItem}
+                />
+                <div className='App-itinerary-container'>
+                    <div className='card-group'>
+                        <div className='card'>
+                            <div className='card-header'>{itinerary.name}</div>
+                            <div className='card-body'>
+                                <FontAwesomeIcon icon={faCalendarAlt} />
+                                <span>PLANNING</span>
+                            </div>
                         </div>
+                        {
+                            this.renderDayColumn(itinerary, itineraryDays, itineraryStartDate, itineraryEndDate)
+                        }
                     </div>
-                    {
-                        this.renderDayColumn(itinerary, itineraryDays, itineraryStartDate, itineraryEndDate)
-                    }
                 </div>
-            </div>
+            </>
         )
     }
 }

@@ -3,7 +3,7 @@ import {
     GET_ITINERARY_REQUEST, GET_ITINERARY_SUCCESS, GET_ITINERARY_FAILURE,
     RESTORE_STATE
 } from './actions'
-import { GET_ITINERARY_API } from '../helpers/APIs';
+import { GET_ITINERARY_API, GET_ITEM_INFO_API } from '../helpers/APIs';
 
 export const actionCreators = {
     getItinerary: () => dispatch => {
@@ -12,10 +12,26 @@ export const actionCreators = {
         try {
             Axios.get(GET_ITINERARY_API)
                 .then(response => {
-                    dispatch({
-                        type: GET_ITINERARY_SUCCESS,
-                        payload: response.data
-                    })
+                    const itinerary = {...response.data}
+
+                    Axios.post(GET_ITEM_INFO_API, response.data.items)
+                        .then(response => {
+                            console.log(response.data)
+                            const newItems = response.data.map(d => {
+                                return {
+                                    ...d,
+                                    startTime: itinerary.items.find(od => od.id === d.id).startTime,
+                                    endTime: itinerary.items.find(od => od.id === d.id).endTime,
+                                }
+                            })
+                            itinerary.items = newItems
+
+                            dispatch({
+                                type: GET_ITINERARY_SUCCESS,
+                                payload: itinerary,
+                            })
+                        })
+                        .catch(e => { throw e })
                 })
                 .catch(e => { throw e })
         } catch (e) {

@@ -1,4 +1,4 @@
-import { SAVE_STATE, RESTORE_STATE } from './actions'
+import { TOGGLE_DELETE_BUTTON, RESTORE_STATE } from './actions'
 
 
 export const actionCreators = {
@@ -13,6 +13,12 @@ export const actionCreators = {
         dispatch({
             type: RESTORE_STATE,
             payload: state,
+        })
+    },
+    toggleDeleteButton: val => (dispatch, getState) => {
+        dispatch({
+            type: TOGGLE_DELETE_BUTTON,
+            payload: !getState().auth.deleteButtonChecked,
         })
     }
 }
@@ -38,7 +44,7 @@ const initialState = {
             photoUrl: '',
         }
     ],
-    metaData: {}
+    deleteButtonChecked: false,
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -49,6 +55,11 @@ export const reducer = (state = initialState, { type, payload }) => {
             username,
             photoUrl,
             shared,
+        }
+    case TOGGLE_DELETE_BUTTON:
+        return {
+            ...state,
+            deleteButtonChecked: payload,
         }
     default:
         return state
