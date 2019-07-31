@@ -1,33 +1,80 @@
-.App {
-  text-align: center;
+.Ta-style {
+  --header-bg-color: #00A680;
+  --body-bg-color: #F5F5F5;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
+.App.Ta-style {
+  background-color: var(--body-bg-color);
+  height: 100%;
   min-height: 100vh;
+}
+
+.Ta-style .App-header {
+  background-color: var(--header-bg-color, #282c34);
+  min-height: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 30px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-usergroup {
+  margin: 10px 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-usergroup-avatar {
+  margin: 3px;
+  cursor: pointer;
+}
+
+.App-itinerary-container {
+  margin: 30px 0;
+}
+
+.App-itinerary-container .card-group {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 30px;
+}
+
+.App-itinerary-container .card-group > .card {
+  min-width: 220px;
+  flex: 0 0 auto;
+  border: 0;
+  box-shadow: -2px 2px 5px -3px;
+}
+
+.App-itinerary-container > .card-group > .card > .card-header,
+.App-itinerary-container > .card-group > .card > .card-body {
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+}
+
+.App-itinerary-container .card-group > .card:first-child > .card-body {
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.App-itinerary-item {
+  margin: 10px;   
+  font-size: 1em;
+  box-shadow: -1px 1px 5px -2px;
+  cursor: pointer;
+}
+
+.App-itinerary-item > .card-body {
+  min-width: 250px;
+}
+
+.App-itinerary-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
