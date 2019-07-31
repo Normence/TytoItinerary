@@ -32,7 +32,8 @@
   cursor: pointer;
 }
 
-.App-usergroup-button.Ta-style {
+.App-usergroup-button.Ta-style,
+.search-modal-button-group.Ta-style > Button {
   background-color: var(--header-bg-color);
   border-color: var(--header-bg-color);
 }

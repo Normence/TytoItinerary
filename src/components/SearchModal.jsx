@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, ButtonGroup } from 'react-bootstrap'
 import GeoSearchList from './GeoSearchList'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
@@ -65,11 +65,11 @@ class TypeSelector extends Component {
 
   render() {
     return(
-      <div>
-        <button onClick={() => this.props.select("hotel")}>Hotels</button>
-        <button onClick={() => this.props.select("restaurant")}>Restaurants</button>
-        <button onClick={() => this.props.select("experience")}>Experiences</button>
-      </div>
+      <ButtonGroup className='Ta-style search-modal-button-group'>
+        <Button variant="secondary" onClick={() => this.props.select("hotel")}>Hotels</Button>
+        <Button variant="secondary" onClick={() => this.props.select("restaurant")}>Restaurants</Button>
+        <Button variant="secondary" onClick={() => this.props.select("experience")}>Experiences</Button>
+      </ButtonGroup>
     )
   }
 }
