@@ -79,7 +79,10 @@ class SearchModal extends Component {
               <span className="ml-3">Pick Date/Time</span>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body className='p-5' style={{"max-height":"80vh","overflow-y":"scroll"}}>
+          <Modal.Body 
+            className='p-5' 
+            style={{ "max-height": "80vh", "overflow-y": "scroll", "min-height": "51vh" }}
+          >
             <form>
               <div class="form-group">
                 <label for="startDate">Start Date</label>
@@ -89,6 +92,11 @@ class SearchModal extends Component {
                     id='startDate'
                     selected={this.state.startDate}
                     onChange={val => this.setState({ startDate: new Date(val) })}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    timeCaption="time"
                   />
                 </div>
               </div>
@@ -100,6 +108,11 @@ class SearchModal extends Component {
                     id='endDate'
                     selected={this.state.endDate}
                     onChange={val => this.setState({ endDate: new Date(val) })}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    timeCaption="time"
                   />
                 </div>
               </div>
