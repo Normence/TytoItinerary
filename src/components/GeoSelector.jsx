@@ -4,6 +4,7 @@ import { Form, Spinner } from 'react-bootstrap'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import Axios from 'axios'
 import { GET_TYPEAHEAD_API} from "../helpers/APIs";
+import HoverHighlightList from './HoverHighlightList'
 
 class GeoSelector extends Component {
   constructor(props) {
@@ -60,26 +61,6 @@ class GeoSelector extends Component {
           </Form.Group>
         </Form>
         <HoverHighlightList textList={this.state.textList} onClick={this.selectGeo.bind(this)} />
-      </div>
-    )
-  }
-}
-
-class HoverHighlightList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return(
-      <div>
-        {!!this.props.textList
-          ?
-          this.props.textList.map(text => {
-            return <div className="_hoverHighlightItem" onClick={() => this.props.onClick(text)}><h3>{text}</h3></div>
-          })
-          :
-          <div style={{margin:"auto"}}><Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner></div>}
       </div>
     )
   }

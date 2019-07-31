@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a302935d-615c-42db-a1ab-327f2bf8dcea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/HoverHighlightList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GeoSelector.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeoSelector.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/APIs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/APIs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchModal.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,10 +52,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ItineraryGrid.js">
+        <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="80" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="2136">
+              <caret line="149" column="71" selection-start-line="149" selection-start-column="71" selection-end-line="149" selection-end-column="71" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -64,25 +64,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
+        <entry file="file://$PROJECT_DIR$/src/components/GeoSelector.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="601">
-              <caret line="112" column="38" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-132">
+              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/GeoSelector.jsx">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/HoverHighlightList.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="41" selection-start-column="41" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -96,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="93" column="1" lean-forward="true" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
+            <state relative-caret-position="622">
+              <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -108,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/GeoSearchList.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="9" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="135">
+              <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -142,11 +136,12 @@
         <option value="$PROJECT_DIR$/src/components/UserGroup.js" />
         <option value="$PROJECT_DIR$/src/components/GeoSearchList.jsx" />
         <option value="$PROJECT_DIR$/src/components/ItemCard.jsx" />
-        <option value="$PROJECT_DIR$/src/components/SearchModal.jsx" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/helpers/APIs.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/HoverHighlightList.jsx" />
         <option value="$PROJECT_DIR$/src/components/GeoSelector.jsx" />
+        <option value="$PROJECT_DIR$/src/components/SearchModal.jsx" />
+        <option value="$PROJECT_DIR$/src/App.css" />
       </list>
     </option>
   </component>
@@ -236,12 +231,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564594880165</updated>
-      <workItem from="1564594881550" duration="16159000" />
+      <workItem from="1564594881550" duration="16565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16159000" />
+    <option name="totallyTimeSpent" value="16565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="28" width="1603" height="965" extended-state="0" />
@@ -346,37 +341,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="112" column="38" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="93" column="1" lean-forward="true" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ItemCard.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="53" column="114" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="114" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/GeoSearchList.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="34" selection-end-column="9" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -402,11 +370,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GeoSelector.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+        <state relative-caret-position="-132">
+          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/HoverHighlightList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="41" selection-start-column="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/GeoSearchList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2136">
+          <caret line="149" column="71" selection-start-line="149" selection-start-column="71" selection-end-line="149" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
         </state>
       </provider>
     </entry>

@@ -4,6 +4,7 @@ import { Modal, Button, ButtonGroup } from 'react-bootstrap'
 import GeoSearchList from './GeoSearchList'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import DatePicker from 'react-datepicker'
+import HoverHighlightList from "./HoverHighlightList";
 
 class SearchModal extends Component {
   constructor(props) {
@@ -26,8 +27,9 @@ class SearchModal extends Component {
   }
 
   setType(newType) {
+    const fNewType = !!newType ? newType.toLowerCase().slice(0, -1) : null;
     this.setState({
-      type: newType
+      type: fNewType
     });
   }
 
@@ -143,12 +145,9 @@ class TypeSelector extends Component {
   }
 
   render() {
+    const options = ["Hotels", "Restaurants", "Experiences"];
     return(
-      <ButtonGroup className='Ta-style search-modal-button-group'>
-        <Button variant="secondary" onClick={() => this.props.select("hotel")}>Hotels</Button>
-        <Button variant="secondary" onClick={() => this.props.select("restaurant")}>Restaurants</Button>
-        <Button variant="secondary" onClick={() => this.props.select("experience")}>Experiences</Button>
-      </ButtonGroup>
+      <HoverHighlightList textList={options} onClick={this.props.select}/>
     )
   }
 }
