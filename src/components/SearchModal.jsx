@@ -76,7 +76,7 @@ class SearchModal extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              <span className="ml-3">Date/Time</span>
+              <span className="ml-3">Pick Date/Time</span>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className='p-5' style={{"max-height":"80vh","overflow-y":"scroll"}}>
@@ -104,10 +104,14 @@ class SearchModal extends Component {
                 </div>
               </div>
             </form>
-            <pre>id: {this.state.selectedId}</pre>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={() => alert("GO!")}>GO!</Button>
+            <Button 
+              variant="primary" 
+              onClick={() => onAdd(this.state.selectedId, this.state.startDate, this.state.endDate)}
+            >
+              Add!
+            </Button>
             <Button variant="secondary" onClick={hideDateSelectModal}>Back</Button>
           </Modal.Footer>
         </Modal>
