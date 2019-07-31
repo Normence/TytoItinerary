@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 import { faBed, faPlaneArrival, faUtensils, faMapMarkerAlt, faSubway } from '@fortawesome/free-solid-svg-icons'
 import { actionCreators } from '../store/itineraryGrid'
+import ItemCard from './ItemCard'
+import SearchModal from './SearchModal'
 
 const timeFormatter = dateObj => {
     const H = dateObj.getHours()

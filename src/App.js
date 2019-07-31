@@ -11,7 +11,7 @@ export default class App extends Component {
       <Provider store={store}>
         <div className="App Ta-style">
           <header className='App-header Ta-style'>
-            Hello world!
+            Tyto Itinerary Builder
           </header>
           <article className='Ta-style'>
             <UserGroup />
