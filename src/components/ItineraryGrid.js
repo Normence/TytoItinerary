@@ -15,6 +15,14 @@ const timeFormatter = dateObj => {
     return `${H >= 10 ? H : '0' + H}:${M >= 10 ? M : '0' + M}`
 }
 
+const getDayOfYear = dateObj => {
+    let now = new Date();
+    let start = new Date(now.getFullYear(), 0, 0);
+    let diff = (dateObj - start) + ((start.getTimezoneOffset() - dateObj.getTimezoneOffset()) * 60 * 1000);
+    let oneDay = 1000 * 60 * 60 * 24;
+    return Math.floor(diff / oneDay);
+}
+
 const CATEGORY = {
     'hotel': faBed,
     'flight': faPlaneArrival,
@@ -80,8 +88,8 @@ class ItineraryGrid extends Component {
                             .filter(item => {
                                 const itemStartTime = new Date(item.startTime)
                                 
-                                return (itemStartTime.getDate() >= itineraryStartDate.getDate() + i)
-                                    && (itemStartTime.getDate() < itineraryStartDate.getDate() + i + 1)
+                                return (getDayOfYear(itemStartTime) >= getDayOfYear(itineraryStartDate) + i)
+                                    && (getDayOfYear(itemStartTime) < getDayOfYear(itineraryStartDate) + i + 1)
                             })
                             .map(item => this.renderItineraryItem(item))
                     }
@@ -118,7 +126,7 @@ class ItineraryGrid extends Component {
 
         const itineraryStartDate = new Date(itinerary.startDate)
         const itineraryEndDate = new Date(itinerary.endDate)
-        const itineraryDays = itineraryEndDate.getDate() - itineraryStartDate.getDate() + 1
+        const itineraryDays = getDayOfYear(itineraryEndDate) - getDayOfYear(itineraryStartDate) + 1
 
         return (
             <>

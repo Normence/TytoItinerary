@@ -54,13 +54,18 @@ export const actionCreators = {
     editItinerary: (name = null, startDate = null, endDate = null) => (dispatch, getState) => {
         const { name: oldName, startDate: oldStartDate, endDate: oldEndDate } = getState().itinerary.data
 
+        startDate = startDate || new Date(oldStartDate)
+        endDate = endDate || new Date(oldEndDate)
+
+        endDate = new Date(Math.max(endDate, startDate))
+
         dispatch({
             type: EDIT_ITINERARY,
             payload: {
                 ...getState().itinerary.data,
                 name: name || oldName,
-                startDate: startDate || oldStartDate,
-                endDate: endDate || oldEndDate,
+                startDate,
+                endDate,
             },
         })
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Button } from 'react-bootstrap'
+import DatePicker from 'react-datepicker'
 
 
 export class EditItineraryModal extends Component {
@@ -15,6 +16,9 @@ export class EditItineraryModal extends Component {
 
     render() {
         const { data, onHide, onSave } = this.props
+
+        const getStartDate = () => this.state.startDate || new Date(data.startDate) || new Date()
+        const getEndDate = () => this.state.endDate || new Date(data.endDate) || new Date()
 
         return (
             <Modal
@@ -40,6 +44,28 @@ export class EditItineraryModal extends Component {
                                 value={this.state.name || data.name}
                                 onChange={e => this.setState({ name: e.target.value })}
                             />
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <div>
+                                <DatePicker
+                                    className='form-control'
+                                    id='startDate'
+                                    selected={getStartDate()}
+                                    onChange={val => this.setState({ startDate: new Date(val) })}
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <div>
+                                <DatePicker
+                                    className='form-control'
+                                    id='endDate'
+                                    selected={getEndDate()}
+                                    onChange={val => this.setState({ endDate: new Date(val) })}
+                                />
+                            </div>
                         </div>
                     </form>
                 </Modal.Body>
