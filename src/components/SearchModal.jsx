@@ -109,7 +109,10 @@ class SearchModal extends Component {
             <Button variant="secondary" onClick={hideDateSelectModal}>Back</Button>
             <Button 
               variant="primary" 
-              onClick={() => onAdd(this.state.selectedId, this.state.startDate, this.state.endDate)}
+              onClick={() => {
+                onAdd(this.state.selectedId, this.state.startDate, this.state.endDate);
+                hideDateSelectModal();
+              }}
             >
               Add!
             </Button>
