@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Button } from 'react-bootstrap'
+import Avatar from 'react-avatar'
+import { actionCreators } from '../store/itineraryGrid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
-import { faBed, faPlaneArrival, faUtensils, faMapMarkerAlt, faSubway } from '@fortawesome/free-solid-svg-icons'
-import { actionCreators } from '../store/itineraryGrid'
-import ItemCard from './ItemCard'
-import SearchModal from './SearchModal'
 
 const timeFormatter = dateObj => {
     const H = dateObj.getHours()
@@ -24,17 +22,36 @@ const getDayOfYear = dateObj => {
 }
 
 const CATEGORY = {
-    'hotel': faBed,
-    'flight': faPlaneArrival,
-    'restaurant': faUtensils,
-    'experience': faMapMarkerAlt,
-    'attraction': faMapMarkerAlt,
-    'transportation': faSubway,
+    'hotel': {
+        icon: '',
+        color: '#068170'
+    },
+    'flight': {
+        icon: '',
+        color: '#FFCC02'
+    },
+    'restaurant': {
+        icon: '',
+        color: '#EF6944'
+    },
+    'experience': {
+        icon: '',
+        color: '#D91D18'
+    },
+    'attraction': {
+        icon: '',
+        color: '#D91D18'
+    },
+    'transportation': {
+        icon: '',
+        color: '#00D58D'
+    },
 }
 
 const CenteredModal = props => {
     const itemStartTime = !!props.selectedItem ? new Date(props.selectedItem.startTime) : null
     const itemEndTime = !!props.selectedItem ? new Date(props.selectedItem.endTime) : null
+    const themeColor = !!props.selectedItem ? CATEGORY[props.selectedItem.category].color : ''
 
     return (
         <Modal
@@ -45,8 +62,14 @@ const CenteredModal = props => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <FontAwesomeIcon icon={!!props.selectedItem ? CATEGORY[props.selectedItem.category] : {}} />
-                    <span className="ml-3">{!!props.selectedItem && props.selectedItem.category.toUpperCase()}</span>
+                    <Avatar
+                        className='App-itinerary-icon'
+                        name={!!props.selectedItem ? CATEGORY[props.selectedItem.category].icon : ''}
+                        color={themeColor}
+                        round
+                        size={50} 
+                    />
+                    <span className="ml-3"  style={{ 'color': themeColor }}>{!!props.selectedItem && props.selectedItem.category.toUpperCase()}</span>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className='p-5'>
@@ -108,10 +131,16 @@ class ItineraryGrid extends Component {
                 <div className='card-body'>
                     <div className='row'>
                         <div className='col-4 App-itinerary-item-icon'>
-                            <FontAwesomeIcon icon={CATEGORY[item.category]} />
+                            <Avatar
+                                className='App-itinerary-icon'
+                                name={CATEGORY[item.category].icon}
+                                color={CATEGORY[item.category].color}
+                                round
+                                size={50} 
+                            />
                         </div>
                         <div className='col-8'>
-                            <div>{item.category.toUpperCase()}</div>
+                            <div style={{ 'color': CATEGORY[item.category].color }}>{item.category.toUpperCase()}</div>
                             <div><span>{item.name}</span></div>
                             <div>{timeFormatter(itemStartDatetime)}</div>
                         </div>
