@@ -11,6 +11,12 @@ class SearchModal extends Component {
     };
   }
 
+  setType(newType) {
+    this.setState({
+      type: newType
+    });
+  }
+
   render() {
     return(
       <Modal
@@ -21,11 +27,11 @@ class SearchModal extends Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            <span className="ml-3">Search{!this.state.type ? "" : ("For " + this.state.type)}</span>
+            <span className="ml-3">Search{!this.state.type ? "" : (" for " + this.state.type + "s")}</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className='p-5'>
-          {!this.state.type ? <TypeSelector select={this.setState} /> : <GeoSearchList type={this.state.type} geoId={this.props.geoId}/>}
+          {!this.state.type ? <TypeSelector select={this.setType.bind(this)} /> : <GeoSearchList type={this.state.type} geoId={this.props.geoId}/>}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={this.props.onHide}>Close</Button>
@@ -44,9 +50,9 @@ class TypeSelector extends Component {
   render() {
     return(
       <div>
-        <button onClick={this.props.select("hotel")}>Hotel</button>
-        <button onClick={this.props.select("restaurant")}>Restaurant</button>
-        <button onClick={this.props.select("Experience")}>Experience</button>
+        <button onClick={() => this.props.select("hotel")}>Hotels</button>
+        <button onClick={() => this.props.select("restaurant")}>Restaurants</button>
+        <button onClick={() => this.props.select("experience")}>Experiences</button>
       </div>
     )
   }
