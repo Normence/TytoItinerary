@@ -92,3 +92,13 @@
 .App-itinerary-icon {
   font-family: 'TripAdvisor_Regular', 'Courier New', Courier, monospace
 }
+
+._hoverHighlightItem {
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+._hoverHighlightItem:hover {
+  background-color: darkgrey;
+}

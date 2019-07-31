@@ -4,6 +4,7 @@ import store from './store'
 import './App.css'
 import UserGroup from './components/UserGroup'
 import ItineraryGrid from './components/ItineraryGrid'
+import GeoSelector from './components/GeoSelector'
 
 export default class App extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class App extends Component {
           <header className='App-header Ta-style'>
             Tyto Itinerary Builder
           </header>
+          <GeoSelector />
           <article className='Ta-style'>
             <UserGroup />
             <ItineraryGrid />
