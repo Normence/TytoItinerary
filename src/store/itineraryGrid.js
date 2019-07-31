@@ -14,9 +14,8 @@ export const actionCreators = {
                 .then(response => {
                     const itinerary = {...response.data}
 
-                    Axios.post(GET_ITEM_INFO_API, response.data.items)
+                    Axios.post(GET_ITEM_INFO_API, response.data.items.map(i => i.id))
                         .then(response => {
-                            console.log(response.data)
                             const newItems = response.data.map(d => {
                                 return {
                                     ...d,

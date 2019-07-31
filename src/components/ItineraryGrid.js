@@ -39,13 +39,13 @@ const CenteredModal = props => {
                     <span className="ml-3">{!!props.selectedItem && props.selectedItem.category.toUpperCase()}</span>
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-                <h4>Centered Modal</h4>
-                <p>Start Time: {itemStartTime && itemStartTime.toUTCString()}</p>
-                <p>End Time: {itemStartTime && itemEndTime.toUTCString()}</p>
+            <Modal.Body className='p-5'>
+                <h4>{!!props.selectedItem && props.selectedItem.name}</h4>
+                <p>Start Time: {itemStartTime && itemStartTime.toLocaleString('en-US', "America/New_York")}</p>
+                <p>End Time: {itemStartTime && itemEndTime.toLocaleString('en-US', "America/New_York")}</p>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
+                <Button variant="secondary" onClick={props.onHide}>Close</Button>
             </Modal.Footer>
         </Modal>
     )
@@ -69,7 +69,7 @@ class ItineraryGrid extends Component {
         const ret = []
 
         for(let i = 0; i < itineraryDays; i++) {
-            ret.push(<div className='card'>
+            ret.push(<div className='card' key={i}>
                 <div className="card-header">Day {i+1}</div>
                 <div className="card-body">
                     {
