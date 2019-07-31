@@ -3,6 +3,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import { Modal, Button, ButtonGroup } from 'react-bootstrap'
 import GeoSearchList from './GeoSearchList'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import DatePicker from 'react-datepicker'
 
 class SearchModal extends Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class SearchModal extends Component {
     this.state = {
       type: null,
       dateSelectModalShown: false,
-      selectedId: 0
+      selectedId: 0,
+      startDate: new Date(),
+      endDate: new Date(),
     };
     this.setType(null);
   }
@@ -73,15 +76,38 @@ class SearchModal extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              <span className="ml-3">Select Date/Time</span>
+              <span className="ml-3">Date/Time</span>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className='p-5' style={{"max-height":"80vh","overflow-y":"scroll"}}>
-            <pre>Date Select</pre>
+            <form>
+              <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <div>
+                  <DatePicker
+                    className='form-control'
+                    id='startDate'
+                    selected={this.state.startDate}
+                    onChange={val => this.setState({ startDate: new Date(val) })}
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="endDate">End Date</label>
+                <div>
+                  <DatePicker
+                    className='form-control'
+                    id='endDate'
+                    selected={this.state.endDate}
+                    onChange={val => this.setState({ endDate: new Date(val) })}
+                  />
+                </div>
+              </div>
+            </form>
             <pre>id: {this.state.selectedId}</pre>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={() => alert("GO!")}>GO!</Button>
+            <Button variant="primary" onClick={() => alert("GO!")}>GO!</Button>
             <Button variant="secondary" onClick={hideDateSelectModal}>Back</Button>
           </Modal.Footer>
         </Modal>
