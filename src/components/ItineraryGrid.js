@@ -48,6 +48,7 @@ const CenteredModal = props => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={props.onHide}>Close</Button>
+                <Button variant="danger" onClick={() => props.onDelete(props.selectedItem.id) || props.onHide()}>Delete</Button>
             </Modal.Footer>
         </Modal>
     )
@@ -124,6 +125,7 @@ class ItineraryGrid extends Component {
                 <CenteredModal
                     show={this.state.showModal}
                     onHide={() => this.setState({ showModal: false })}
+                    onDelete={id => this.props.deleteItem(id)}
                     selectedItem={this.state.selectedItem}
                 />
                 <div className='App-itinerary-container'>
