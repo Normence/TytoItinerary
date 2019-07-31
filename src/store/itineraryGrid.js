@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import {
     GET_ITINERARY_REQUEST, GET_ITINERARY_SUCCESS, GET_ITINERARY_FAILURE,
-    RESTORE_STATE
+    RESTORE_STATE, DELETE_ITINERARY_ITEM
 } from './actions'
 import { GET_ITINERARY_API, GET_ITEM_INFO_API } from '../helpers/APIs';
 
@@ -40,6 +40,17 @@ export const actionCreators = {
             })
         }
     },
+    deleteItem: id => (dispatch, getState) => {
+        const newData = {
+            ...getState().itinerary.data,
+            items: getState().itinerary.data.items.filter(i => i.id !== id)
+        }
+
+        dispatch({
+            type: DELETE_ITINERARY_ITEM,
+            payload: newData,
+        })
+    },
 }
 
 const initialState = {
@@ -72,6 +83,11 @@ export const reducer = (state = initialState, { type, payload }) => {
         return {
             ...state,
             data: payload.itinerary.data
+        }
+    case DELETE_ITINERARY_ITEM:
+        return {
+            ...state,
+            data: payload,
         }
     default:
         return state
