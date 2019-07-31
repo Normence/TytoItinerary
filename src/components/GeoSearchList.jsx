@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Modal, Button } from 'react-bootstrap'
 import Axios from 'axios'
-import { BASE_URL, SEARCH_EXPERIENCES_API, SEARCH_HOTELS_API, SEARCH_RESTAURANTS_API } from '../helpers/APIs'
+import ItemCard from './ItemCard'
+import { SEARCH_EXPERIENCES_API, SEARCH_HOTELS_API, SEARCH_RESTAURANTS_API } from '../helpers/APIs'
+
+const MAX_SEARCH_RESULTS = 20;
 
 const apiMap = {
   'hotel': SEARCH_HOTELS_API,
@@ -14,7 +15,7 @@ class GeoSearchList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      resultIds: {}
+      resultIds: null
     };
   }
 
@@ -24,22 +25,21 @@ class GeoSearchList extends Component {
     };
     Axios.post(apiMap[this.props.type], requestBody)
       .then(result => {
+        console.log(result);
+        const idList = result.data.slice(0, MAX_SEARCH_RESULTS);
         this.setState({
-          resultIds: result
+          resultIds: idList
         });
       })
       .catch(err => {
-        alert("Error!");
-        console.error(err);
+        console.error(`Error fetching search results for type ${this.props.type}:\n${err}`);
       });
   }
 
   render() {
     return(
       <div>
-        <p>Type: {this.type}</p>
-        <p>Geo Id: {this.geoId}</p>
-        <pre>resultIds:{"\n" + JSON.stringify(this.state.resultIds, null, 2)}</pre>
+        {!this.state.resultIds ? <span>Loading...</span> : this.state.resultIds.map(id => { return <ItemCard id={id} createActionItem={this.props.createActionItem} /> })}
       </div>
     )
   }
