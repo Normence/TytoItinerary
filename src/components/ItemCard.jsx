@@ -15,7 +15,6 @@ class ItemCard extends Component {
     const requestBody = [ this.props.id ];
     Axios.post(GET_ITEM_INFO_API, requestBody)
       .then(result => {
-        console.log(result);
         this.setState({
           info: result.data[0]
         });

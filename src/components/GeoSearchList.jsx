@@ -25,7 +25,6 @@ class GeoSearchList extends Component {
     };
     Axios.post(apiMap[this.props.type], requestBody)
       .then(result => {
-        console.log(result);
         const idList = result.data.slice(0, MAX_SEARCH_RESULTS);
         this.setState({
           resultIds: idList

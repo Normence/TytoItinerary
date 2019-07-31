@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import {
     GET_ITINERARY_REQUEST, GET_ITINERARY_SUCCESS, GET_ITINERARY_FAILURE,
-    RESTORE_STATE, DELETE_ITINERARY_ITEM, EDIT_ITINERARY
+    RESTORE_STATE, DELETE_ITINERARY_ITEM, EDIT_ITINERARY, ADD_ITINERARY_ITEM
 } from './actions'
 import { GET_ITINERARY_API, GET_ITEM_INFO_API } from '../helpers/APIs';
 
@@ -38,6 +38,13 @@ export const actionCreators = {
                 type: GET_ITINERARY_FAILURE,
                 payload: e
             })
+        }
+    },
+    addItem: (id, startTime, endTime) => (dispatch, getState) => {
+        console.log(id, startTime, endTime)
+        const newData = {
+            ...getState().itinerary.data,
+            items: [...getState().itinerary.data.items]
         }
     },
     deleteItem: id => (dispatch, getState) => {

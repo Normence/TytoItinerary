@@ -31,13 +31,14 @@ class UserGroup extends Component {
     }
 
     render() {
-        const { users, editItinerary } = this.props;
+        const { users, editItinerary, addItem } = this.props;
         return (
           <>
               <SearchModal
                 geoId={this.props.geoId}
                 show={this.state.searchModalShown}
                 onHide={() => this.setState({ searchModalShown: false })}
+                onAdd={(id, startTime, endTime) => addItem(id, startTime, endTime)}
               />
               <EditItineraryModal
                 show={this.state.editItineraryModalShown}
