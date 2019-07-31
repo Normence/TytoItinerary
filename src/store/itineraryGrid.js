@@ -16,11 +16,13 @@ export const actionCreators = {
 
                     Axios.post(GET_ITEM_INFO_API, response.data.items.map(i => i.id))
                         .then(response => {
-                            const newItems = response.data.map(d => ({
-                                ...d,
-                                startTime: itinerary.items.find(od => od.id === d.id).startTime,
-                                endTime: itinerary.items.find(od => od.id === d.id).endTime,
-                            }))
+                            const newItems = response.data
+                                .map(d => ({
+                                    ...d,
+                                    startTime: itinerary.items.find(od => od.id === d.id).startTime,
+                                    endTime: itinerary.items.find(od => od.id === d.id).endTime,
+                                }))
+                                .sort((firstItem, secondItem) => new Date(firstItem.startTime) - new Date(secondItem.startTime))
                             itinerary.items = newItems
 
                             dispatch({
@@ -39,7 +41,6 @@ export const actionCreators = {
         }
     },
     addItem: (id, startTime, endTime) => (dispatch, getState) => {
-        console.log(id, startTime, endTime)
         dispatch({ type: GET_ITINERARY_REQUEST})
 
         startTime = new Date(startTime)
@@ -48,21 +49,21 @@ export const actionCreators = {
         try {
             Axios.post(GET_ITEM_INFO_API, [id])
                 .then(response => {
-                    const newData = {
-                        ...getState().itinerary.data,
-                        items: [
-                            ...getState().itinerary.data.items,
-                            {
-                                ...response.data[0],
-                                startTime,
-                                endTime,
-                            },
-                        ]
-                    }
-
+                    const newItems = [
+                        ...getState().itinerary.data.items,
+                        {
+                            ...response.data[0],
+                            startTime,
+                            endTime,
+                        },
+                    ].sort((firstItem, secondItem) => new Date(firstItem.startTime) - new Date(secondItem.startTime))
+                    
                     dispatch({
                         type: GET_ITINERARY_SUCCESS,
-                        payload: newData,
+                        payload: {
+                            ...getState().itinerary.data,
+                            items: newItems,
+                        },
                     })
                 })
                 .catch(e => {throw e})
