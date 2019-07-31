@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Avatar from 'react-avatar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { actionCreators } from '../store/auth';
+import { faPlusCircle, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { actionCreators } from '../store/auth'
+import { actionCreators as itineraryStore } from '../store/itineraryGrid'
 import SearchModal from './SearchModal'
+import EditItineraryModal from './EditItineraryModal'
 
 class UserGroup extends Component {
 
@@ -12,6 +14,7 @@ class UserGroup extends Component {
         super(props);
         this.state = {
             searchModalShown: false,
+            editItineraryModalShown: false,
         };
     }
 
@@ -21,8 +24,14 @@ class UserGroup extends Component {
         });
     }
 
+    toggleEditItineraryModal() {
+        this.setState({
+            editItineraryModalShown: !this.searchModalShown
+        });
+    }
+
     render() {
-        const { users, deleteButtonChecked, toggleDeleteButton } = this.props;
+        const { users, editItinerary } = this.props;
         return (
           <>
               <SearchModal
@@ -30,23 +39,36 @@ class UserGroup extends Component {
                 show={this.state.searchModalShown}
                 onHide={() => this.setState({ searchModalShown: false })}
               />
+              <EditItineraryModal
+                show={this.state.editItineraryModalShown}
+                onHide={() => this.setState({ editItineraryModalShown: false })}
+                onSave={(name, startDate, endDate) => editItinerary(name, startDate, endDate)}
+              />
               <div className='App-usergroup'>
                   <div>
-                      {
-                          users.map(user => <Avatar
-                            key={user.photoUrl}
-                            className='App-usergroup-avatar'
-                            name={user.username}
-                            src={user.photoUrl}
-                            round
-                            size={50} />)
-                      }
+                        {
+                            users.map(user => <Avatar
+                                key={user.photoUrl}
+                                className='App-usergroup-avatar'
+                                name={user.username}
+                                src={user.photoUrl}
+                                round
+                                size={50} />)
+                        }
                   </div>
-                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                      <button type="button" className="btn btn-success App-usergroup-button Ta-style" data-toggle="button" aria-pressed={deleteButtonChecked} autoComplete="off" onClick={toggleDeleteButton}>
-                          <FontAwesomeIcon icon={faTrash} />
-                      </button>
-                      <button type="button" className="btn btn-success App-usergroup-button Ta-style" data-toggle="button" aria-pressed={this.state.searchModalShown} autoComplete="off" onClick={this.toggleSearchModal.bind(this)}>
+                  <div className="btn-group">
+                        <button 
+                            type="button" 
+                            className="btn btn-success App-usergroup-button Ta-style" 
+                            onClick={this.toggleEditItineraryModal.bind(this)}
+                        >
+                            <FontAwesomeIcon icon={faEdit} />
+                        </button>
+                        <button 
+                            type="button" 
+                            className="btn btn-success App-usergroup-button Ta-style" 
+                            onClick={this.toggleSearchModal.bind(this)}
+                        >
                           <FontAwesomeIcon icon={faPlusCircle} />
                       </button>
                   </div>
@@ -71,4 +93,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, actionCreators)(UserGroup)
+export default connect(
+    mapStateToProps, 
+    {...actionCreators, ...itineraryStore})(UserGroup)
