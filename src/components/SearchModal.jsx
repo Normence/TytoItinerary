@@ -9,8 +9,17 @@ class SearchModal extends Component {
     super(props);
     this.state = {
       type: null,
+      dateSelectModalShown: false,
+      selectedId: 0
     };
     this.setType(null);
+  }
+
+  openDateSelectFor(id) {
+    this.setState({
+      dateSelectModalShown: true,
+      selectedId: id
+    })
   }
 
   setType(newType) {
@@ -21,12 +30,14 @@ class SearchModal extends Component {
 
   render() {
     const { geoId, onHide, onAdd } = this.props
-    const createAddItemButton = id => <AddItemButton id={id} onAdd={onAdd} />
+    const createAddItemButton = id => <AddItemButton id={id} onAdd={this.openDateSelectFor.bind(this)} />
+    const hideDateSelectModal = () => this.setState({ dateSelectModalShown: false });
     
     return(
       <>
         <Modal
-          {...this.props}
+          show={this.props.show && !this.state.dateSelectModalShown}
+          onHide={onHide}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
@@ -50,6 +61,28 @@ class SearchModal extends Component {
           <Modal.Footer>
             {!!this.state.type ? <Button variant="secondary" onClick={() => this.setType(null)}>Back</Button> : <></>}
             <Button variant="secondary" onClick={onHide}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+
+        <Modal
+          show={this.state.dateSelectModalShown}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          onHide={hideDateSelectModal}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              <span className="ml-3">Select Date/Time</span>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className='p-5' style={{"max-height":"80vh","overflow-y":"scroll"}}>
+            <pre>Date Select</pre>
+            <pre>id: {this.state.selectedId}</pre>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => alert("GO!")}>GO!</Button>
+            <Button variant="secondary" onClick={hideDateSelectModal}>Back</Button>
           </Modal.Footer>
         </Modal>
       </>
