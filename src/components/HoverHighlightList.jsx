@@ -7,15 +7,15 @@ class HoverHighlightList extends Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         {!!this.props.textList
           ?
           this.props.textList.map(text => {
-            return <div className="_hoverHighlightItem" onClick={() => this.props.onClick(text)}><h3>{text}</h3></div>
+            return <div className="_hoverHighlightItem" onClick={() => this.props.onClick(text)}><span>{text}</span></div>
           })
           :
-          <div style={{margin:"auto"}}><Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner></div>}
+          <div style={{ margin: "auto" }}><Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner></div>}
       </div>
     )
   }

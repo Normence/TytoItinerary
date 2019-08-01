@@ -66,7 +66,7 @@ class DetailsSelector extends Component {
         </div>
         <div className="card-footer">
           <div className="row">
-            <div className="col-auto"><Button>Back</Button></div>
+            <div className="col-auto"><Button onClick={() => this.props.goTo(this.props.prePage)}>Back</Button></div>
             <div className="col" />
             <div className="col-auto"><Button onClick={() => this.saveAndContinue()} >Save</Button></div>
           </div>

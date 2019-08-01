@@ -13,7 +13,8 @@ class GeoSelector extends Component {
     super(props);
     this.state = {
       textList: [],
-      nameToId: {}
+      nameToId: {},
+      inputVal: '',
     }
   }
 
@@ -22,11 +23,15 @@ class GeoSelector extends Component {
   }
 
   selectGeo(name) {
+    this.setState({
+      inputVal: name,
+      textList: [],
+    })
     const geoId = this.state.nameToId[name];
     // set geoId in Redux state
     store.dispatch(itineraryActionCreators.editItinerary(null, null, null, geoId, null, name));
     console.log(`selected geo ${geoId}`);
-    this.props.goTo(this.props.nextPage);
+    this.props.goTo && this.props.goTo(this.props.nextPage);
   }
 
   handleChange(e) {
@@ -34,17 +39,18 @@ class GeoSelector extends Component {
   }
 
   getTypeAhead(query) {
-
     if (query.length < 3) {
       this.setState({
         textList: [],
-        nameToId: {}
+        nameToId: {},
+        inputVal: query,
       });
       return;
     }
 
     this.setState({
-      textList: null
+      textList: null,
+      inputVal: query,
     });
 
     Axios.get(`${GET_TYPEAHEAD_API}?query=${query}`)
@@ -70,11 +76,16 @@ class GeoSelector extends Component {
 
   render() {
     return(
-      <div className="card _geoSelector">
-        <h2 style={{"text-align":"center"}}>Select Your Destination</h2>
+      <div className="card _geoSelector mb-3">
+        <h2 style={{"text-align": "center", 'marginBottom': 10}}>Select Your Destination</h2>
         <Form>
           <Form.Group>
-            <Form.Control type="text" placeholder="Where to?" onChange={this.handleChange.bind(this)} />
+            <Form.Control 
+              type="text" 
+              value={this.state.inputVal} 
+              placeholder={(store.getState().itinerary.data && store.getState().itinerary.data.geoName) || "Where to?"} 
+              onChange={this.handleChange.bind(this)} 
+            />
             {/*<FontAwesomeIcon icon={faSearch} />*/}
           </Form.Group>
         </Form>
