@@ -164,7 +164,9 @@ class AddItemButton extends Component {
       <div className="row justify-content-center">
         <div className={"col"}>
           <Button 
-            className="btn btn-lg btn-success" 
+            className="btn btn-lg"
+            variant='info'
+            style={{ 'backgroundColor': '#00A680', 'borderColor': '#00A680' }}
             onClick={() => onAdd(id)}
           >
             <FontAwesomeIcon icon={faPlusCircle} />
