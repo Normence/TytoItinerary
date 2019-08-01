@@ -67,7 +67,7 @@ class ItemCard extends Component {
                       </a>
                     </div>
                     <div>
-                      <p>{this.props.deriveMoreInfo ? this.props.deriveMoreInfo(this.state.info) : ""}</p>
+                      {this.props.deriveMoreInfo ? this.props.deriveMoreInfo(this.state.info) : ""}
                     </div>
                   </>
                   :

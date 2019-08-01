@@ -13,8 +13,8 @@ class SearchModal extends Component {
       type: null,
       dateSelectModalShown: false,
       selectedId: 0,
-      startDate: new Date(),
-      endDate: new Date(),
+      startDate: new Date(this.props.startDate || new Date()),
+      endDate: new Date(this.props.endDate || new Date()),
     };
     this.setType(null);
   }
@@ -55,13 +55,19 @@ class SearchModal extends Component {
           <Modal.Body className='p-5' style={{"max-height":"80vh","overflow-y":"scroll"}}>
             {!this.state.type
               ?
-              <TypeSelector select={this.setType.bind(this)} />
+              <div>
+                <TypeSelector select={this.setType.bind(this)} />
+              </div>
               :
-              <GeoSearchList
-                type={this.state.type}
-                geoId={geoId}
-                createActionItem={createAddItemButton}
-              />}
+              this.state.type === "import"
+                ?
+                <CustomItemInput pass={this.openDateSelectFor.bind(this)}/>
+                :
+                <GeoSearchList
+                  type={this.state.type}
+                  geoId={geoId}
+                  createActionItem={createAddItemButton}
+                />}
           </Modal.Body>
           <Modal.Footer>
             {!!this.state.type ? <Button variant="secondary" onClick={() => this.setType(null)}>Back</Button> : <></>}
@@ -139,13 +145,38 @@ class SearchModal extends Component {
 
 }
 
+class CustomItemInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      url: ""
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        <form>
+          <input className="form-control" type="text" placeholder="Enter tripadvisor.com URL" onChange={e => this.setState({url: e.target.value})}/>
+        </form>
+        <Button className="btn btn-success btn-lg mt-4" onClick={() => {
+          const url = this.state.url
+          let parsed = url.slice(url.indexOf("-d") + 2);
+          parsed = parsed.slice(0, parsed.indexOf("-"));
+          this.props.pass(parsed);
+        }}>Add</Button>
+      </div>
+    )
+  }
+}
+
 class TypeSelector extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const options = ["Hotels", "Restaurants", "Experiences"];
+    const options = ["Hotels", "Restaurants", "Experiences", "Import!"];
     return(
       <HoverHighlightList textList={options} onClick={this.props.select}/>
     )

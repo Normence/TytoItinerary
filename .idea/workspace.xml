@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a302935d-615c-42db-a1ab-327f2bf8dcea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/ItineraryGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItineraryGrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GeoSearchList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeoSearchList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ItemCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ItineraryList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItineraryList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserGroup.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/UserGroup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="577">
+              <caret line="119" column="22" lean-forward="true" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -41,18 +45,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/auth.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ItineraryGrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
+            <state relative-caret-position="332">
               <caret line="162" column="41" lean-forward="true" selection-start-line="162" selection-start-column="41" selection-end-line="162" selection-end-column="41" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
@@ -61,11 +56,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ItineraryList.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+            <state relative-caret-position="486">
+              <caret line="48" column="107" selection-start-line="48" selection-start-column="107" selection-end-line="48" selection-end-column="107" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -100,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ItemCard.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="69" column="100" lean-forward="true" selection-start-line="69" selection-start-column="100" selection-end-line="69" selection-end-column="100" />
+            <state relative-caret-position="1035">
+              <caret line="69" column="99" selection-start-line="69" selection-start-column="99" selection-end-line="69" selection-end-column="99" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -114,18 +121,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1950">
               <caret line="130" column="8" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/itineraryGrid.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
-              <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -154,18 +149,18 @@
         <option value="$PROJECT_DIR$/src/store/actions.js" />
         <option value="$PROJECT_DIR$/src/components/PageContainer.jsx" />
         <option value="$PROJECT_DIR$/src/components/ItineraryGrid.jsx" />
-        <option value="$PROJECT_DIR$/src/components/SearchModal.jsx" />
-        <option value="$PROJECT_DIR$/src/components/GeoSearchList.jsx" />
         <option value="$PROJECT_DIR$/src/store/auth.js" />
         <option value="$PROJECT_DIR$/src/store/itineraryGrid.js" />
-        <option value="$PROJECT_DIR$/src/components/ItemCard.jsx" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/UserGroup.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/components/GeoSelector.jsx" />
         <option value="$PROJECT_DIR$/src/components/DetailsSelector.jsx" />
         <option value="$PROJECT_DIR$/src/components/ItineraryGrid.js" />
+        <option value="$PROJECT_DIR$/src/components/UserGroup.js" />
         <option value="$PROJECT_DIR$/src/components/ItineraryList.jsx" />
+        <option value="$PROJECT_DIR$/src/components/GeoSearchList.jsx" />
+        <option value="$PROJECT_DIR$/src/components/ItemCard.jsx" />
+        <option value="$PROJECT_DIR$/src/components/SearchModal.jsx" />
       </list>
     </option>
   </component>
@@ -255,12 +250,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564594880165</updated>
-      <workItem from="1564594881550" duration="34164000" />
+      <workItem from="1564594881550" duration="37912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34164000" />
+    <option name="totallyTimeSpent" value="37912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="51" width="1603" height="965" extended-state="0" />
@@ -368,16 +363,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="54" lean-forward="true" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/actions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -389,16 +374,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="77" column="39" lean-forward="true" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/GeoSearchList.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="39" column="69" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -418,26 +393,6 @@
           <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ItemCard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="69" column="100" lean-forward="true" selection-start-line="69" selection-start-column="100" selection-end-line="69" selection-end-column="100" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/UserGroup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -481,8 +436,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ItineraryGrid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
+        <state relative-caret-position="332">
           <caret line="162" column="41" lean-forward="true" selection-start-line="162" selection-start-column="41" selection-end-line="162" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/UserGroup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="119" column="22" lean-forward="true" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -491,8 +456,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ItineraryList.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+        <state relative-caret-position="486">
+          <caret line="48" column="107" selection-start-line="48" selection-start-column="107" selection-end-line="48" selection-end-column="107" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ItemCard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="99" selection-start-line="69" selection-start-column="99" selection-end-line="69" selection-end-column="99" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/GeoSearchList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="46" column="167" selection-start-line="46" selection-start-column="167" selection-end-line="46" selection-end-column="167" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SearchModal.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>

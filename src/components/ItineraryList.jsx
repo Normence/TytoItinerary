@@ -39,14 +39,14 @@ class ItineraryList extends Component {
         fullCardList.push(<DayHeaderCard date={startDate} />);
       }
       lastDate = startDate;
-      let moreInfo;
+      let timeframe;
       if (startDate.getDate() !== endDate.getDate()) {
-        moreInfo = `${startDate.toLocaleString("en-US")} to ${endDate.toLocaleString("en-US")}`;
+        timeframe = `${startDate.toLocaleString("en-US")} to ${endDate.toLocaleString("en-US")}`;
       } else {
-        moreInfo = `${startDate.toLocaleTimeString("en-US")} to ${endDate.toLocaleTimeString("en-US")}`;
+        timeframe = `${startDate.toLocaleTimeString("en-US")} to ${endDate.toLocaleTimeString("en-US")}`;
       }
-      moreInfo = moreInfo.replace(/:00/g, "");
-      fullCardList.push(<ItemCard id={item.id} deriveMoreInfo={() => moreInfo} />);
+      timeframe = timeframe.replace(/:00/g, "");
+      fullCardList.push(<ItemCard id={item.id} deriveMoreInfo={info => <><p>{timeframe}</p><p>{info.address}</p></>} />);
     }
 
     return(

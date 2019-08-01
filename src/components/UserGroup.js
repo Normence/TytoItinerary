@@ -50,6 +50,8 @@ class UserGroup extends Component {
                 onAdd={(id, startTime, endTime) => {
                   addItem(id, startTime, endTime);
                 }}
+                startDate={this.props.startDate}
+                endDate={this.props.endDate}
               />
               <EditItineraryModal
                 show={this.state.editItineraryModalShown}
@@ -109,7 +111,7 @@ class UserGroup extends Component {
 
 const mapStateToProps = (state) => {
     const { username, photoUrl, shared, deleteButtonChecked } = state.auth;
-    const { geoId } = state.itinerary.data;
+    const { geoId, startDate, endDate } = state.itinerary.data;
 
     return {
         users: [{
@@ -118,6 +120,8 @@ const mapStateToProps = (state) => {
         }, ...shared],
         deleteButtonChecked,
         geoId,
+        startDate,
+        endDate
     }
 }
 

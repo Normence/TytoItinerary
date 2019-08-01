@@ -44,7 +44,7 @@ class GeoSearchList extends Component {
       <div>
         {!this.state.resultIds 
           ? <span>Loading...</span> 
-          : this.state.resultIds.filter(id => existingIds.indexOf(id) === -1).map(id => <ItemCard id={id} createActionItem={this.props.createActionItem} /> )}
+          : this.state.resultIds.filter(id => existingIds.indexOf(id) === -1).map(id => <ItemCard id={id} createActionItem={this.props.createActionItem} deriveMoreInfo={info => <p>{info.address}</p>} /> )}
       </div>
     )
   }
