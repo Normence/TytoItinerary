@@ -10,6 +10,10 @@ class DetailsSelector extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    document.title = "Tyto - Plan Your Trip";
+  }
+
   saveAndContinue() {
     console.log(this.state);
     store.dispatch(itineraryActionCreators.editItinerary(this.state.tripName, this.state.startDate, this.state.endDate, null));

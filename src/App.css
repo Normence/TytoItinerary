@@ -121,3 +121,14 @@
 .App-itinerary-container > .card-group > .card > .card-body {
   justify-content: start; /*to-start*/
 }
+
+._italics {
+  font-style: italic;
+}
+
+@media print
+{
+  .card {
+    page-break-inside: avoid;
+  }
+}

@@ -4,9 +4,12 @@ import store from './store'
 import './App.css'
 import UserGroup from './components/UserGroup'
 import ItineraryGrid from './components/ItineraryGrid'
+import ItineraryList from './components/ItineraryList'
 import GeoSelector from './components/GeoSelector'
 import DetailsSelector from './components/DetailsSelector'
 import {actionCreators} from "./store/itineraryGrid";
+
+const DISPLAY_PAGE = "itineraryGrid";
 
 export default class App extends Component {
   constructor(props) {
@@ -37,8 +40,8 @@ export default class App extends Component {
                   case "landing":
                     if (store.getState().itinerary.data.name) {
                       this.setState({
-                        page: "itineraryDisplay"
-                      })
+                        page: DISPLAY_PAGE
+                      });
                       return;
                     }
                     return(
@@ -52,15 +55,22 @@ export default class App extends Component {
                     return(
                       <div className="row justify-content-center">
                         <div className="col col-sm-10 col-md-8 col-lg-6">
-                          <DetailsSelector nextPage={"itineraryDisplay"} goTo={this.goTo.bind(this)} />
+                          <DetailsSelector nextPage={DISPLAY_PAGE} goTo={this.goTo.bind(this)} />
                         </div>
                       </div>
                     )
-                  case "itineraryDisplay":
+                  case "itineraryGrid":
                     return(
                       <div>
                         <UserGroup goTo={this.goTo.bind(this)}/>
                         <ItineraryGrid goTo={this.goTo.bind(this)}/>
+                      </div>
+                    );
+                  case "itineraryList":
+                    return(
+                      <div>
+                        {/*<UserGroup goTo={this.goTo.bind(this)}/>*/}
+                        <ItineraryList goTo={this.goTo.bind(this)}/>
                       </div>
                     );
                   default:

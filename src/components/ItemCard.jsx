@@ -46,7 +46,7 @@ class ItemCard extends Component {
                   <a href={`https://tripadvisor.com${this.state.info.link}`} target="_blank">
                     <Image
                       src={this.state.info.thumbnail.photoSizes[2].url}
-                      style={{width:"150px",height:"150px"}}
+                      style={{width:"100px",height:"100px"}}
                       thumbnail
                     />
                   </a>
@@ -66,7 +66,9 @@ class ItemCard extends Component {
                         <h3>{this.state.info.name}</h3>
                       </a>
                     </div>
-                    <div>More information...?</div>
+                    <div>
+                      <p>{this.props.deriveMoreInfo ? this.props.deriveMoreInfo(this.state.info) : ""}</p>
+                    </div>
                   </>
                   :
                   <><Spinner animation="grow" variant="dark" /><div>Loading...</div></>}

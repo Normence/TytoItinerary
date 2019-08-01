@@ -17,10 +17,14 @@ class GeoSelector extends Component {
     }
   }
 
+  componentDidMount() {
+    document.title = "Tyto - Choose Your Destination";
+  }
+
   selectGeo(name) {
     const geoId = this.state.nameToId[name];
     // set geoId in Redux state
-    store.dispatch(itineraryActionCreators.editItinerary(null, null, null, geoId));
+    store.dispatch(itineraryActionCreators.editItinerary(null, null, null, geoId, null, name));
     console.log(`selected geo ${geoId}`);
     this.props.goTo(this.props.nextPage);
   }

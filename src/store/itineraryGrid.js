@@ -92,8 +92,8 @@ export const actionCreators = {
         });
         dispatch(actionCreators.saveItinerary());
     },
-    editItinerary: (name = null, startDate = null, endDate = null, geoId = null, adultNum = null) => (dispatch, getState) => {
-        const { name: oldName, startDate: oldStartDate, endDate: oldEndDate, geoId: oldGeoId, adultNum: oldAdultNum } = getState().itinerary.data;
+    editItinerary: (name = null, startDate = null, endDate = null, geoId = null, adultNum = null, geoName = null) => (dispatch, getState) => {
+        const { name: oldName, startDate: oldStartDate, endDate: oldEndDate, geoId: oldGeoId, adultNum: oldAdultNum, geoName: oldGeoName } = getState().itinerary.data;
 
         startDate = startDate || new Date(oldStartDate);
         endDate = endDate || new Date(oldEndDate);
@@ -109,6 +109,7 @@ export const actionCreators = {
                 endDate,
                 geoId: geoId || oldGeoId,
                 adultNum: adultNum || oldAdultNum,
+                geoName: geoName || oldGeoName,
             },
         })
         dispatch(actionCreators.saveItinerary());

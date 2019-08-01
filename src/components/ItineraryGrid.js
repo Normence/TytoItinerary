@@ -96,6 +96,7 @@ class ItineraryGrid extends Component {
     }
 
     componentDidMount() {
+        document.title = `Tyto - ${this.props.data.name}`;
         // this.props.getItinerary()
     }
 
@@ -159,6 +160,7 @@ class ItineraryGrid extends Component {
 
         if (!itinerary.name) {
             this.props.goTo("landing");
+            return;
         }
 
         const itineraryStartDate = new Date(itinerary.startDate)

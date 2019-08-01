@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Avatar from 'react-avatar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle, faEdit, faTrash, faPrint } from '@fortawesome/free-solid-svg-icons'
 import { actionCreators } from '../store/auth'
 import { actionCreators as itineraryStore } from '../store/itineraryGrid'
 import SearchModal from './SearchModal'
@@ -33,6 +33,10 @@ class UserGroup extends Component {
     clear() {
         this.props.clearItinerary();
         this.props.saveItinerary();
+    }
+
+    print() {
+        this.props.goTo("itineraryList");
     }
 
     render() {
@@ -87,6 +91,13 @@ class UserGroup extends Component {
                             onClick={this.clear.bind(this)}
                         >
                             <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-success App-usergroup-button Ta-style"
+                          onClick={this.print.bind(this)}
+                        >
+                          <FontAwesomeIcon icon={faPrint} />
                         </button>
                   </div>
               </div>
