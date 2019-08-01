@@ -1,4 +1,4 @@
-import { TOGGLE_DELETE_BUTTON, RESTORE_STATE } from './actions'
+import { TOGGLE_DELETE_BUTTON, RESTORE_STATE, SWITCH_TO_PAGE } from './actions'
 
 
 export const actionCreators = {
@@ -19,6 +19,12 @@ export const actionCreators = {
         dispatch({
             type: TOGGLE_DELETE_BUTTON,
             payload: !getState().auth.deleteButtonChecked,
+        })
+    },
+    switchToPage: val => (dispatch, getState) => {
+        dispatch({
+            type: SWITCH_TO_PAGE,
+            payload: val
         })
     }
 }
@@ -45,23 +51,29 @@ const initialState = {
         }
     ],
     deleteButtonChecked: false,
+    page: "landing"
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
-    case RESTORE_STATE:
-        const { username, photoUrl, shared } = payload
-        return {
-            username,
-            photoUrl,
-            shared,
-        }
-    case TOGGLE_DELETE_BUTTON:
-        return {
-            ...state,
-            deleteButtonChecked: payload,
-        }
-    default:
-        return state
+        case RESTORE_STATE:
+            const { username, photoUrl, shared } = payload
+            return {
+                username,
+                photoUrl,
+                shared,
+            }
+        case TOGGLE_DELETE_BUTTON:
+            return {
+                ...state,
+                deleteButtonChecked: payload,
+            }
+        case SWITCH_TO_PAGE:
+            return {
+                ...state,
+                page: payload
+            }
+        default:
+            return state
     }
 }

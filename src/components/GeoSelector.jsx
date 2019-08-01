@@ -18,6 +18,7 @@ class GeoSelector extends Component {
   selectGeo(name) {
     const geoId = this.state.nameToId[name];
     console.log(`selected geo ${geoId}`);
+    this.props.goTo(this.props.nextPage);
   }
 
   handleChange(e) {
@@ -25,6 +26,15 @@ class GeoSelector extends Component {
   }
 
   getTypeAhead(query) {
+
+    if (query.length < 3) {
+      this.setState({
+        textList: [],
+        nameToId: {}
+      });
+      return;
+    }
+
     this.setState({
       textList: null
     });
@@ -52,7 +62,7 @@ class GeoSelector extends Component {
 
   render() {
     return(
-      <div>
+      <div className="card _geoSelector">
         <h2 style={{"text-align":"center"}}>Select Your Destination</h2>
         <Form>
           <Form.Group>
