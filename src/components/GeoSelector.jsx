@@ -5,6 +5,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import Axios from 'axios'
 import { GET_TYPEAHEAD_API} from "../helpers/APIs";
 import HoverHighlightList from './HoverHighlightList'
+import store from '../store'
+import { actionCreators as itineraryActionCreators } from '../store/itineraryGrid'
 
 class GeoSelector extends Component {
   constructor(props) {
@@ -17,7 +19,8 @@ class GeoSelector extends Component {
 
   selectGeo(name) {
     const geoId = this.state.nameToId[name];
-
+    // set geoId in Redux state
+    store.dispatch(itineraryActionCreators.editItinerary(null, null, null, geoId));
     console.log(`selected geo ${geoId}`);
     this.props.goTo(this.props.nextPage);
   }

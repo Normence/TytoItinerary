@@ -1,5 +1,6 @@
 import { TOGGLE_DELETE_BUTTON, RESTORE_STATE, SWITCH_TO_PAGE } from './actions'
 
+const RESTORE_AUTH_STATE_ENABLED = false;
 
 export const actionCreators = {
     saveToLocalstorage: () => (dispatch, getState) => {
@@ -57,6 +58,9 @@ const initialState = {
 export const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case RESTORE_STATE:
+            if (!RESTORE_AUTH_STATE_ENABLED) {
+                return state;
+            }
             const { username, photoUrl, shared } = payload
             return {
                 username,

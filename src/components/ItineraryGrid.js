@@ -96,15 +96,18 @@ class ItineraryGrid extends Component {
     }
 
     componentDidMount() {
-        this.props.getItinerary()
+        // this.props.getItinerary()
     }
 
     renderDayColumn(itinerary, itineraryDays, itineraryStartDate, itineraryEndDate) {
         const ret = []
 
         for(let i = 0; i < itineraryDays; i++) {
+            const thisDate = new Date(itineraryStartDate);
+            thisDate.setDate(thisDate.getDate() + i);
             ret.push(<div className='card' key={i}>
-                <div className="card-header">Day {i+1}</div>
+                {/*<div className="card-header">Day {i+1}</div>*/}
+                <div className="card-header">{`${thisDate.getMonth() + 1}/${thisDate.getDate()}/${("" + thisDate.getFullYear()).slice(-2)}`}</div>
                 <div className="card-body">
                     {
                         itinerary.items && itinerary.items
@@ -112,7 +115,8 @@ class ItineraryGrid extends Component {
                                 const itemStartTime = new Date(item.startTime)
                                 
                                 return (getDayOfYear(itemStartTime) >= getDayOfYear(itineraryStartDate) + i)
-                                    && (getDayOfYear(itemStartTime) < getDayOfYear(itineraryStartDate) + i + 1)
+                                    && (getDayOfYear(itemStartTime) < getDayOfYear(itineraryStartDate) + i + 1);
+                                // return (itemStartTime >= thisDate) && (itemStartTime < thisDate); // TODO make this work, it doesn't right now, of course
                             })
                             .map(item => this.renderItineraryItem(item))
                     }
@@ -151,7 +155,11 @@ class ItineraryGrid extends Component {
     }
 
     render() {
-        const { data: itinerary = {} } = this.props
+        const { data: itinerary = {} } = this.props;
+
+        if (!itinerary.name) {
+            this.props.goTo("landing");
+        }
 
         const itineraryStartDate = new Date(itinerary.startDate)
         const itineraryEndDate = new Date(itinerary.endDate)
@@ -166,10 +174,10 @@ class ItineraryGrid extends Component {
                     selectedItem={this.state.selectedItem}
                 />
                 <div className='App-itinerary-container'>
-                    <div className='card-group'>
+                    <div className='card-group' style={{"min-height":"70vh"}}>
                         <div className='card'>
                             <div className='card-header'>{itinerary.name}</div>
-                            <div className='card-body'>
+                            <div className='card-body' >
                                 <FontAwesomeIcon icon={faCalendarAlt} />
                                 <span>PLANNING</span>
                             </div>
@@ -186,6 +194,6 @@ class ItineraryGrid extends Component {
 
 const mapStateToProps = (state) => ({
     data: state.itinerary.data
-})
+});
 
 export default connect(mapStateToProps, actionCreators)(ItineraryGrid)

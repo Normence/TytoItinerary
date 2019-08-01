@@ -70,6 +70,7 @@
   border-left: 1px solid rgba(0, 0, 0, 0.125);
   justify-content: space-around;
   flex-direction: row;
+  /*align-items: start; !*to-start*!*/
 }
 
 .App-itinerary-item {
@@ -115,4 +116,8 @@
   padding: 1em;
   /*background-color: white;*/
   /*border: 4px black;*/
+}
+
+.App-itinerary-container > .card-group > .card > .card-body {
+  justify-content: start; /*to-start*/
 }

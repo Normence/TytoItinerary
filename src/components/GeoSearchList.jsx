@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import ItemCard from './ItemCard'
 import { SEARCH_EXPERIENCES_API, SEARCH_HOTELS_API, SEARCH_RESTAURANTS_API } from '../helpers/APIs'
+import store from '../store'
 
 const MAX_SEARCH_RESULTS = 20;
 
@@ -36,11 +37,14 @@ class GeoSearchList extends Component {
   }
 
   render() {
+    const existingItems = store.getState().itinerary.data.items || [];
+    const existingIds = [];
+    existingItems.map(item => existingIds.push(item.id));
     return(
       <div>
         {!this.state.resultIds 
           ? <span>Loading...</span> 
-          : this.state.resultIds.map(id => <ItemCard id={id} createActionItem={this.props.createActionItem} /> )}
+          : this.state.resultIds.filter(id => existingIds.indexOf(id) === -1).map(id => <ItemCard id={id} createActionItem={this.props.createActionItem} /> )}
       </div>
     )
   }

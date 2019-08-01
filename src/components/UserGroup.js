@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Avatar from 'react-avatar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { actionCreators } from '../store/auth'
 import { actionCreators as itineraryStore } from '../store/itineraryGrid'
 import SearchModal from './SearchModal'
@@ -30,6 +30,11 @@ class UserGroup extends Component {
         });
     }
 
+    clear() {
+        this.props.clearItinerary();
+        this.props.saveItinerary();
+    }
+
     render() {
         const { users, editItinerary, addItem } = this.props;
         return (
@@ -38,12 +43,16 @@ class UserGroup extends Component {
                 geoId={this.props.geoId}
                 show={this.state.searchModalShown}
                 onHide={() => this.setState({ searchModalShown: false })}
-                onAdd={(id, startTime, endTime) => addItem(id, startTime, endTime)}
+                onAdd={(id, startTime, endTime) => {
+                  addItem(id, startTime, endTime);
+                }}
               />
               <EditItineraryModal
                 show={this.state.editItineraryModalShown}
                 onHide={() => this.setState({ editItineraryModalShown: false })}
-                onSave={(name, startDate, endDate) => editItinerary(name, startDate, endDate)}
+                onSave={(name, startDate, endDate) => {
+                  editItinerary(name, startDate, endDate);
+                }}
               />
               <div className='App-usergroup'>
                   <div>
@@ -71,7 +80,14 @@ class UserGroup extends Component {
                             onClick={this.toggleSearchModal.bind(this)}
                         >
                           <FontAwesomeIcon icon={faPlusCircle} />
-                      </button>
+                        </button>
+                        <button
+                            type="button"
+                            className="btn btn-success App-usergroup-button Ta-style"
+                            onClick={this.clear.bind(this)}
+                        >
+                            <FontAwesomeIcon icon={faTrash} />
+                        </button>
                   </div>
               </div>
           </>
