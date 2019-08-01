@@ -24,7 +24,7 @@ class ItineraryList extends Component {
 
     if (!itinerary.name) {
       this.props.goTo("landing");
-      return;
+      return <div>Loading...</div>;
     }
 
     const itemsList = itinerary.items || [];

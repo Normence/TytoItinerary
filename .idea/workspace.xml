@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a302935d-615c-42db-a1ab-327f2bf8dcea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ItineraryList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DetailsSelector.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailsSelector.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GeoSelector.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeoSelector.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ItemCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ItineraryGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItineraryGrid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/itineraryGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/itineraryGrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ItineraryList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItineraryList.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ItineraryGrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="98" column="51" selection-start-line="98" selection-start-column="51" selection-end-line="98" selection-end-column="51" />
+            <state relative-caret-position="268">
+              <caret line="162" column="41" lean-forward="true" selection-start-line="162" selection-start-column="41" selection-end-line="162" selection-end-column="41" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -71,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/ItineraryList.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+            <state relative-caret-position="174">
+              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -178,7 +171,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="55" />
-    <option name="y" value="28" />
+    <option name="y" value="51" />
     <option name="width" value="1603" />
     <option name="height" value="965" />
   </component>
@@ -262,15 +255,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564594880165</updated>
-      <workItem from="1564594881550" duration="33805000" />
+      <workItem from="1564594881550" duration="34164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33805000" />
+    <option name="totallyTimeSpent" value="34164000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="28" width="1603" height="965" extended-state="0" />
+    <frame x="55" y="51" width="1603" height="965" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />
@@ -488,8 +481,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ItineraryGrid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="98" column="51" selection-start-line="98" selection-start-column="51" selection-end-line="98" selection-end-column="51" />
+        <state relative-caret-position="268">
+          <caret line="162" column="41" lean-forward="true" selection-start-line="162" selection-start-column="41" selection-end-line="162" selection-end-column="41" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -498,8 +491,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ItineraryList.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        <state relative-caret-position="174">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>

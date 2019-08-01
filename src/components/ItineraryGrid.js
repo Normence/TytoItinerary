@@ -160,7 +160,7 @@ class ItineraryGrid extends Component {
 
         if (!itinerary.name) {
             this.props.goTo("landing");
-            return;
+            return <div>Loading...</div>;
         }
 
         const itineraryStartDate = new Date(itinerary.startDate)
