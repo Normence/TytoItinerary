@@ -53,6 +53,12 @@ const CenteredModal = props => {
     const itemEndTime = !!props.selectedItem ? new Date(props.selectedItem.endTime) : null
     const themeColor = !!props.selectedItem ? CATEGORY[props.selectedItem.category].color : ''
 
+    let thumbnailSize = 4
+    
+    if(window.screen.width < 1000) {
+        thumbnailSize = 3
+    }
+
     return (
         <Modal
             {...props}
@@ -74,7 +80,7 @@ const CenteredModal = props => {
             </Modal.Header>
             <Modal.Body className='p-5'>
                 <div className='flex-center mb-3'>
-                    <img className='App-search-card' src={!!props.selectedItem && props.selectedItem.thumbnail.photoSizes[4].url} alt=""/>
+                    <img className='App-search-card' src={!!props.selectedItem && props.selectedItem.thumbnail.photoSizes[thumbnailSize].url} alt=""/>
                 </div>
                 <a 
                     href={`https://www.tripadvisor.com${!!props.selectedItem && props.selectedItem.link}`}
