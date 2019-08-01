@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Button } from 'react-bootstrap'
 import DatePicker from 'react-datepicker'
+import GeoSelector from './GeoSelector'
 
 
 export class EditItineraryModal extends Component {
@@ -34,6 +35,7 @@ export class EditItineraryModal extends Component {
                 </Modal.Header>
                 <Modal.Body className='p-5'>
                     <form>
+                        <GeoSelector /> 
                         <div className="form-group">
                             <label for="itineraryName">Itinerary Name</label>
                             <input 
