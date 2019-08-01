@@ -160,7 +160,7 @@ class CustomItemInput extends Component {
           <input className="form-control" type="text" placeholder="Enter tripadvisor.com URL" onChange={e => this.setState({url: e.target.value})}/>
         </form>
         <Button className="btn btn-success btn-lg mt-4" onClick={() => {
-          const url = this.state.url
+          const url = this.state.url;
           let parsed = url.slice(url.indexOf("-d") + 2);
           parsed = parsed.slice(0, parsed.indexOf("-"));
           this.props.pass(parsed);
