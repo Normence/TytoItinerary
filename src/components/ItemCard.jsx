@@ -29,7 +29,7 @@ class ItemCard extends Component {
 
   render() {
     return(
-      <div className='card App-item-card' key={this.props.id} >
+      <div className='card App-search-card mb-3' key={this.props.id} >
         <div className='card-body'>
           {this.state.error
             ?
@@ -58,7 +58,11 @@ class ItemCard extends Component {
                   ?
                   <>
                     <div>
-                      <a href={`https://tripadvisor.com${this.state.info.link}`} target="blank">
+                      <a 
+                        href={`https://tripadvisor.com${this.state.info.link}`} 
+                        target="blank"
+                        style={{ 'textDecoration': 'none', 'color': '#00A680' }}
+                      >
                         <h3>{this.state.info.name}</h3>
                       </a>
                     </div>

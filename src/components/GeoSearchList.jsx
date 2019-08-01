@@ -38,7 +38,9 @@ class GeoSearchList extends Component {
   render() {
     return(
       <div>
-        {!this.state.resultIds ? <span>Loading...</span> : this.state.resultIds.map(id => { return <ItemCard id={id} createActionItem={this.props.createActionItem} /> })}
+        {!this.state.resultIds 
+          ? <span>Loading...</span> 
+          : this.state.resultIds.map(id => <ItemCard id={id} createActionItem={this.props.createActionItem} /> )}
       </div>
     )
   }
