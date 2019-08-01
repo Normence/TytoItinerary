@@ -73,6 +73,9 @@ const CenteredModal = props => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className='p-5'>
+                <div className='flex-center mb-3'>
+                    <img className='App-search-card' src={!!props.selectedItem && props.selectedItem.thumbnail.photoSizes[4].url} alt=""/>
+                </div>
                 <a 
                     href={`https://www.tripadvisor.com${!!props.selectedItem && props.selectedItem.link}`}
                     className='text-success'

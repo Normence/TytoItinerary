@@ -89,7 +89,7 @@
   min-width: 250px;
 }
 
-.App-itinerary-item-icon {
+.App-itinerary-item-icon, .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
