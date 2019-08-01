@@ -17,6 +17,7 @@ class GeoSelector extends Component {
 
   selectGeo(name) {
     const geoId = this.state.nameToId[name];
+
     console.log(`selected geo ${geoId}`);
     this.props.goTo(this.props.nextPage);
   }
