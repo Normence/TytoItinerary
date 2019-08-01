@@ -73,9 +73,28 @@ const CenteredModal = props => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className='p-5'>
-                <h4>{!!props.selectedItem && props.selectedItem.name}</h4>
-                <p>Start Time: {itemStartTime && itemStartTime.toLocaleString('en-US', "America/New_York")}</p>
-                <p>End Time: {itemStartTime && itemEndTime.toLocaleString('en-US', "America/New_York")}</p>
+                <a 
+                    href={`https://www.tripadvisor.com${!!props.selectedItem && props.selectedItem.link}`}
+                    className='text-success'
+                    target="_blank"
+                    style={{ 'textDecoration': 'none' }}
+                >
+                    <h3>{!!props.selectedItem && props.selectedItem.name}</h3>
+                </a>
+                <a 
+                    href={`https://www.google.com/maps?q=${!!props.selectedItem && props.selectedItem.address.replace(/\s/g, '+')}`} 
+                    className='text-info'
+                    target="_blank"
+                    style={{ 'textDecoration': 'none' }}
+                >
+                    {!!props.selectedItem && props.selectedItem.address}
+                </a>
+                <div className='mt-2'>
+                    <span>Start Time: {itemStartTime && itemStartTime.toLocaleString('en-US', "America/New_York")}</span>
+                </div>
+                <div>
+                    <span>End Time: {itemStartTime && itemEndTime.toLocaleString('en-US', "America/New_York")}</span>
+                </div>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={props.onHide}>Close</Button>
