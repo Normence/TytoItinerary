@@ -46,7 +46,7 @@ class ItineraryList extends Component {
         timeframe = `${startDate.toLocaleTimeString("en-US")} to ${endDate.toLocaleTimeString("en-US")}`;
       }
       timeframe = timeframe.replace(/:00/g, "");
-      fullCardList.push(<ItemCard id={item.id} deriveMoreInfo={info => <><p>{timeframe}</p><p>{info.address}</p></>} />);
+      fullCardList.push(<ItemCard id={item.id} info={item} deriveMoreInfo={info => <><p>{timeframe}</p><p>{info.address}</p></>} />);
     }
 
     return(

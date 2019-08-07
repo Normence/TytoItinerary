@@ -5,6 +5,7 @@ import Avatar from 'react-avatar'
 import { actionCreators } from '../store/itineraryGrid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
+import { getISODay } from 'date-fns/esm';
 
 const timeFormatter = dateObj => {
     const H = dateObj.getHours()
@@ -91,7 +92,7 @@ const CenteredModal = props => {
                     <h3>{!!props.selectedItem && props.selectedItem.name}</h3>
                 </a>
                 <a 
-                    href={`https://www.google.com/maps?q=${!!props.selectedItem && props.selectedItem.address.replace(/\s/g, '+')}`} 
+                    href={`https://www.google.com/maps?q=${!!props.selectedItem && !!props.selectedItem.address && props.selectedItem.address.replace(/\s/g, '+')}`} 
                     className='text-info'
                     target="_blank"
                     style={{ 'textDecoration': 'none' }}
@@ -126,6 +127,8 @@ class ItineraryGrid extends Component {
     componentDidMount() {
         document.title = `Tyto - ${this.props.data.name}`;
         // this.props.getItinerary()
+        const { geoId, geoName } = this.props.data
+        this.props.mockDataGeoId({ geoId, geoName })
     }
 
     renderDayColumn(itinerary, itineraryDays, itineraryStartDate, itineraryEndDate) {

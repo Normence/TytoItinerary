@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Spinner, Image } from 'react-bootstrap'
 import Axios from 'axios';
 import { GET_ITEM_INFO_API } from '../helpers/APIs'
+import { actionCreators } from '../store/itineraryGrid.js'
+import store from '../store'
 
 class ItemCard extends Component {
   constructor(props) {
@@ -12,9 +14,13 @@ class ItemCard extends Component {
   }
 
   componentDidMount() {
+    // this.setState({
+    //   info: this.props.info
+    // })
     const requestBody = [ this.props.id ];
     Axios.post(GET_ITEM_INFO_API, requestBody)
       .then(result => {
+        store.dispatch(actionCreators.mockDataItem(result.data[0]))
         this.setState({
           info: result.data[0]
         });
@@ -31,7 +37,7 @@ class ItemCard extends Component {
     return(
       <div className='card App-search-card mb-3' key={this.props.id} >
         <div className='card-body'>
-          {this.state.error
+          {this.state.error || !this.state.info
             ?
             <div className='row'>
               <div className='col-12'>

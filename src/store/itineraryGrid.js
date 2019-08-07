@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import {
     GET_ITINERARY_REQUEST, GET_ITINERARY_SUCCESS, GET_ITINERARY_FAILURE, SAVE_STATE,
-    RESTORE_STATE, DELETE_ITINERARY_ITEM, EDIT_ITINERARY, ADD_ITINERARY_ITEM
+    RESTORE_STATE, DELETE_ITINERARY_ITEM, EDIT_ITINERARY, MOCK_DATA_GEO_ID, MOCK_DATA_ITEM
 } from './actions'
 import { GET_ITINERARY_API, GET_ITEM_INFO_API } from '../helpers/APIs';
 
@@ -120,6 +120,8 @@ export const actionCreators = {
         }
         console.log("Saving itinerary...");
         const itinerary = getState().itinerary;
+        // itinerary.mockData = []
+        console.log(itinerary)
         localStorage.setItem("itinerary", JSON.stringify(itinerary));
         dispatch({
             type: SAVE_STATE,
@@ -132,14 +134,14 @@ export const actionCreators = {
         if (!RESTORE_ITINERARY_ENABLED) {
             return;
         }
-        const itineraryString = localStorage.getItem("itinerary");
+        const itineraryString = localStorage.getItem("itinerary")
+        console.log(itineraryString);
         let itinerary;
         if (!!itineraryString) {
             itinerary = JSON.parse(itineraryString);
         } else {
             itinerary = {
                 data: {},
-                items: []
             }
         }
         const payload = {
@@ -154,14 +156,44 @@ export const actionCreators = {
         const payload = {
             itinerary: {
                 data: {},
-                items: []
             }
         };
         dispatch({
             type: RESTORE_STATE,
             payload: payload
         });
-    }
+    },
+    mockDataGeoId: obj => (dispatch, getState) => {
+        const { mockData } = getState().itinerary
+
+        if(!mockData || mockData.findIndex(m => m.geoId === obj.geoId) !== -1) { return }
+
+        const payload = [
+            ...mockData,
+            {
+                ...obj,
+                items: [],
+            }
+        ]
+        dispatch({
+            type: MOCK_DATA_GEO_ID,
+            payload,
+        })
+    },
+    mockDataItem: obj => (dispatch, getState) => {
+        const { mockData, data: { geoId } } = getState().itinerary
+
+        if(!mockData) { return }
+        const payload = [...mockData]
+        const index = payload.findIndex(m => m.geoId === geoId)
+        if(index === -1) { return }
+        payload[index].items.push(obj)
+
+        dispatch({
+            type: MOCK_DATA_ITEM,
+            payload,
+        })
+    },
 }
 
 const initialState = {
@@ -169,6 +201,7 @@ const initialState = {
     submitting: false,
     error: '',
     data: {},
+    mockData: [],
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -200,6 +233,7 @@ export const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 data: payload.itinerary.data,
                 items: payload.itinerary.items,
+                mockData: payload.itinerary.mockData, // payload.itinerary.mockData
             }
         case DELETE_ITINERARY_ITEM:
             return {
@@ -210,6 +244,12 @@ export const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 data: payload,
+            }
+        case MOCK_DATA_GEO_ID:
+        case MOCK_DATA_ITEM:
+            return {
+                ...state,
+                mockData: payload,
             }
         default:
             return state
