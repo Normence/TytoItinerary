@@ -48,20 +48,14 @@ const CATEGORY = {
     },
 }
 
-const CenteredModal = props => {
-    const itemStartTime = !!props.selectedItem ? new Date(props.selectedItem.startTime) : null
-    const itemEndTime = !!props.selectedItem ? new Date(props.selectedItem.endTime) : null
-    const themeColor = !!props.selectedItem ? CATEGORY[props.selectedItem.category].color : ''
-
-    let thumbnailSize = 4
-    
-    if(window.screen.width < 1000) {
-        thumbnailSize = 3
-    }
+const CenteredModal = ({ selectedItem, onHide, onDelete, onClick, ...rest }) => {
+    const itemStartTime = !!selectedItem ? new Date(selectedItem.startTime) : null
+    const itemEndTime = !!selectedItem ? new Date(selectedItem.endTime) : null
+    const themeColor = !!selectedItem ? CATEGORY[selectedItem.category].color : ''
 
     return (
         <Modal
-            {...props}
+            {...rest}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
@@ -70,35 +64,40 @@ const CenteredModal = props => {
                 <Modal.Title id="contained-modal-title-vcenter">
                     <Avatar
                         className='App-itinerary-icon'
-                        name={!!props.selectedItem ? CATEGORY[props.selectedItem.category].icon : ''}
+                        name={!!selectedItem ? CATEGORY[selectedItem.category].icon : ''}
                         color={themeColor}
                         round
                         size={50} 
                     />
-                    <span className="ml-3"  style={{ 'color': themeColor }}>{!!props.selectedItem && props.selectedItem.category.toUpperCase()}</span>
+                    <span className="ml-3"  style={{ 'color': themeColor }}>{!!selectedItem && selectedItem.category.toUpperCase()}</span>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className='p-5'>
                 <div className='flex-center mb-3'>
-                    <img className='App-search-card' src={!!props.selectedItem && props.selectedItem.thumbnail.photoSizes[thumbnailSize].url} alt=""/>
+                    <img 
+                        className='App-search-card' 
+                        src={!!selectedItem && !!selectedItem.thumbnail ? selectedItem.thumbnail.photoSizes[selectedItem.thumbnail.photoSizes.length - 1].url : ''} 
+                        alt=""
+                        style={{ maxWidth: '100%' }}
+                    />
                 </div>
                 <a 
-                    href={`https://www.tripadvisor.com${!!props.selectedItem && props.selectedItem.link}`}
+                    href={`https://www.tripadvisor.com${!!selectedItem && selectedItem.link}`}
                     className='text-success'
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ 'textDecoration': 'none' }}
                 >
-                    <h3>{!!props.selectedItem && props.selectedItem.name}</h3>
+                    <h3>{!!selectedItem && selectedItem.name}</h3>
                 </a>
                 <a 
-                    href={`https://www.google.com/maps?q=${!!props.selectedItem && !!props.selectedItem.address && props.selectedItem.address.replace(/\s/g, '+')}`} 
+                    href={`https://www.google.com/maps?q=${!!selectedItem && !!selectedItem.address && selectedItem.address.replace(/\s/g, '+')}`} 
                     className='text-info'
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ 'textDecoration': 'none' }}
                 >
-                    {!!props.selectedItem && props.selectedItem.address}
+                    {!!selectedItem && selectedItem.address}
                 </a>
                 <div className='mt-2'>
                     <span>Start Time: {itemStartTime && itemStartTime.toLocaleString('en-US', "America/New_York")}</span>
@@ -108,8 +107,8 @@ const CenteredModal = props => {
                 </div>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={props.onHide}>Close</Button>
-                <Button variant="danger" onClick={() => props.onDelete(props.selectedItem.id) || props.onHide()}>Delete</Button>
+                <Button variant="secondary" onClick={onHide}>Close</Button>
+                <Button variant="danger" onClick={() => onDelete(selectedItem.id) || onHide()}>Delete</Button>
             </Modal.Footer>
         </Modal>
     )

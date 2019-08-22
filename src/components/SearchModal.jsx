@@ -12,16 +12,16 @@ class SearchModal extends Component {
     this.state = {
       type: null,
       dateSelectModalShown: false,
-      selectedId: 0,
+      selectedItem: null,
       startDate: new Date(this.props.startDate || new Date()),
       endDate: new Date(this.props.endDate || new Date()),
     };
   }
 
-  openDateSelectFor(id) {
+  openDateSelectFor(item) {
     this.setState({
       dateSelectModalShown: true,
-      selectedId: id
+      selectedItem: item
     })
   }
 
@@ -34,7 +34,7 @@ class SearchModal extends Component {
 
   render() {
     const { geoId, onHide, onAdd } = this.props
-    const createAddItemButton = id => <AddItemButton id={id} onAdd={this.openDateSelectFor.bind(this)} />
+    const createAddItemButton = item => <AddItemButton item={item} onAdd={this.openDateSelectFor.bind(this)} />
     const hideDateSelectModal = () => this.setState({ dateSelectModalShown: false });
     
     return(
@@ -51,7 +51,7 @@ class SearchModal extends Component {
               <span className="ml-3">Search{!this.state.type ? "" : (" for " + this.state.type + "s")}</span>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body className='p-5' style={{"max-height":"80vh","overflow-y":"scroll"}}>
+          <Modal.Body className='p-5' style={{"maxHeight":"80vh","overflowY":"scroll"}}>
             {!this.state.type
               ?
               <div>
@@ -88,11 +88,11 @@ class SearchModal extends Component {
           </Modal.Header>
           <Modal.Body 
             className='p-5' 
-            style={{ "max-height": "80vh", "overflow-y": "scroll", "minHeight": "51vh" }}
+            style={{ "maxHeight": "80vh", "overflowY": "scroll", "minHeight": "51vh" }}
           >
             <form>
-              <div class="form-group">
-                <label for="startDate">Start Date</label>
+              <div className="form-group">
+                <label htmlFor="startDate">Start Date</label>
                 <div>
                   <DatePicker
                     className='form-control'
@@ -107,8 +107,8 @@ class SearchModal extends Component {
                   />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="endDate">End Date</label>
+              <div className="form-group">
+                <label htmlFor="endDate">End Date</label>
                 <div>
                   <DatePicker
                     className='form-control'
@@ -130,7 +130,7 @@ class SearchModal extends Component {
             <Button 
               variant="primary" 
               onClick={() => {
-                onAdd(this.state.selectedId, this.state.startDate, this.state.endDate);
+                onAdd(this.state.selectedItem, this.state.startDate, this.state.endDate);
                 hideDateSelectModal();
               }}
             >
@@ -180,7 +180,7 @@ class TypeSelector extends Component {
 
 class AddItemButton extends Component {
   render() {
-    const { id, onAdd } = this.props
+    const { item, onAdd } = this.props
 
     return(
       <div className="row justify-content-center">
@@ -189,7 +189,7 @@ class AddItemButton extends Component {
             className="btn btn-lg"
             variant='info'
             style={{ 'backgroundColor': '#00A680', 'borderColor': '#00A680' }}
-            onClick={() => onAdd(id)}
+            onClick={() => onAdd(item)}
           >
             <FontAwesomeIcon icon={faPlusCircle} />
           </Button>

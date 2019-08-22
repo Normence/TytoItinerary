@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import {Spinner} from "react-bootstrap";
 
-class HoverHighlightList extends Component {
-  render() {
-    return (
-      <div>
-        {!!this.props.textList
-          ?
-          this.props.textList.map(text => {
-            return <div className="_hoverHighlightItem" onClick={() => this.props.onClick(text)}><span>{text}</span></div>
-          })
-          :
-          <div style={{ margin: "auto" }}><Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner></div>}
+const HoverHighlightList = ({ textList, onClick, selectedText }) => (
+  <div>
+    {!!textList && !!textList.length
+      ?
+      textList.map(text => (
+        <div 
+          className={`_hoverHighlightItem${text === selectedText ? ' _hoverHighlightItem-selected' : ''}`}
+          onClick={() => onClick(text)} 
+          key={text}
+        >
+          <span>{text}</span>
+        </div>
+      ))
+      :
+      <div style={{ margin: "auto", width: 50 }}>
+        <Spinner animation="border" role="status" />
       </div>
-    )
-  }
-}
+    }
+  </div>
+)
 
 export default HoverHighlightList;

@@ -25,6 +25,7 @@ export class EditItineraryModal extends Component {
             <Modal
                 {...rest}
                 size="lg"
+                onHide={onHide}
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >

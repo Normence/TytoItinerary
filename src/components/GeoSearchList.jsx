@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import { Spinner } from "react-bootstrap";
 import ItemCard from './ItemCard'
 import { SEARCH_EXPERIENCES_API, SEARCH_HOTELS_API, SEARCH_RESTAURANTS_API } from '../helpers/APIs'
 import store from '../store'
-
-const MAX_SEARCH_RESULTS = 20;
 
 const apiMap = {
   'hotel': SEARCH_HOTELS_API,
@@ -16,7 +15,7 @@ class GeoSearchList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      resultIds: null
+      resultList: null
     };
   }
 
@@ -26,9 +25,8 @@ class GeoSearchList extends Component {
     };
     Axios.post(apiMap[this.props.type], requestBody)
       .then(result => {
-        const idList = result.data.slice(0, MAX_SEARCH_RESULTS);
         this.setState({
-          resultIds: idList
+          resultList: result.data
         });
       })
       .catch(err => {
@@ -42,9 +40,21 @@ class GeoSearchList extends Component {
     existingItems.map(item => existingIds.push(item.id));
     return(
       <div>
-        {!this.state.resultIds 
-          ? <span>Loading...</span> 
-          : this.state.resultIds.filter(id => existingIds.indexOf(id) === -1).map(id => <ItemCard id={id} createActionItem={this.props.createActionItem} deriveMoreInfo={info => <p>{info.address}</p>} /> )}
+        {!this.state.resultList 
+          ? <div style={{ margin: 'auto', width: 50 }}>
+            <Spinner animation="border" role="status" />
+          </div>
+          : this.state.resultList
+              .filter(result => existingIds.indexOf(result.id) === -1)
+              .map(result => 
+                <ItemCard 
+                  info={result} 
+                  createActionItem={this.props.createActionItem} 
+                  deriveMoreInfo={info => <p>{info.address}</p>}
+                  key={result.id}
+                />
+              )
+        }
       </div>
     )
   }

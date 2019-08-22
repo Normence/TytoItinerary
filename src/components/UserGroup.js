@@ -40,15 +40,16 @@ class UserGroup extends Component {
     }
 
     render() {
-        const { users, editItinerary, addItem } = this.props;
+        const { users, editItinerary, addItem, saveItinerary } = this.props;
         return (
           <>
               <SearchModal
                 geoId={this.props.geoId}
                 show={this.state.searchModalShown}
                 onHide={() => this.setState({ searchModalShown: false })}
-                onAdd={(id, startTime, endTime) => {
-                  addItem(id, startTime, endTime);
+                onAdd={(item, startTime, endTime) => {
+                  addItem(item, startTime, endTime);
+                  saveItinerary();
                 }}
                 startDate={this.props.startDate}
                 endDate={this.props.endDate}

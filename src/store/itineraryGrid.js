@@ -41,42 +41,28 @@ export const actionCreators = {
                 })
             })
     },
-    addItem: (id, startTime, endTime) => (dispatch, getState) => {
-        dispatch({ type: GET_ITINERARY_REQUEST})
-
+    addItem: (item, startTime, endTime) => (dispatch, getState) => {
         const items = getState().itinerary.data.items || [];
 
         startTime = new Date(startTime)
         endTime = new Date(Math.max(startTime, endTime))
 
-        try {
-            Axios.post(GET_ITEM_INFO_API, [id])
-                .then(response => {
-                    const newItems = [
-                        ...items,
-                        {
-                            ...response.data[0],
-                            startTime,
-                            endTime,
-                        },
-                    ].sort((firstItem, secondItem) => new Date(firstItem.startTime) - new Date(secondItem.startTime))
+        const newItems = [
+            ...items,
+            {
+                ...item,
+                startTime,
+                endTime,
+            },
+        ].sort((firstItem, secondItem) => new Date(firstItem.startTime) - new Date(secondItem.startTime))
                     
-                    dispatch({
-                        type: GET_ITINERARY_SUCCESS,
-                        payload: {
-                            ...getState().itinerary.data,
-                            items: newItems,
-                        },
-                    })
-                    dispatch(actionCreators.saveItinerary());
-                })
-                .catch(e => {throw e})
-        } catch (e) {
-            dispatch({ 
-                type: GET_ITINERARY_FAILURE,
-                payload: e,
-            })
-        }
+        dispatch({
+            type: GET_ITINERARY_SUCCESS,
+            payload: {
+                ...getState().itinerary.data,
+                items: newItems,
+            },
+        })
     },
     deleteItem: id => (dispatch, getState) => {
         const newData = {

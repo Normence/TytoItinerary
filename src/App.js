@@ -35,13 +35,17 @@ export default class App extends Component {
       })
   }
 
+  onClickHeader() {
+    this.state.page === 'itineraryList' && this.setState({ page: 'itineraryGrid' })
+  }
+
   render() {
     return (
       <Provider store={store}>
         <div className="App Ta-style">
           <header className='App-header Ta-style'>
             <img className='App-logo ml-3 mr-3' src={Logo} alt="" />
-            <h1>Tyto Itinerary Builder</h1>
+            <h1 style={{ cursor: 'pointer' }} onClick={this.onClickHeader.bind(this)}>Tyto Itinerary Builder</h1>
           </header>
           <article className='Ta-style'>
             {

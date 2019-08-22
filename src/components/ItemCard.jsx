@@ -39,7 +39,10 @@ class ItemCard extends Component {
                     />
                   </a>
                   :
-                  <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>}
+                  <div className='flex-center' style={{ width: 100, height: 100 }}>
+                    <Spinner animation="border" role="status" />
+                  </div>
+                }
               </div>
               <div className='col'>
                 {!!this.state.info.name
@@ -59,9 +62,12 @@ class ItemCard extends Component {
                     </div>
                   </>
                   :
-                  <><Spinner animation="grow" variant="dark" /><div>Loading...</div></>}
+                  <><Spinner animation="grow" variant="dark" /><div>Loading...</div></>
+                }
               </div>
-              {!!this.props.createActionItem ? <div className='col-auto'>{this.props.createActionItem(this.props.id)}</div> : <></>}
+              {
+                !!this.props.createActionItem && <div className='col-auto'>{this.props.createActionItem(this.props.info)}</div>
+              }
             </div>}
         </div>
       </div>
