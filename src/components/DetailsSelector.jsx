@@ -15,7 +15,6 @@ class DetailsSelector extends Component {
   }
 
   saveAndContinue() {
-    console.log(this.state);
     store.dispatch(itineraryActionCreators.editItinerary(this.state.tripName, this.state.startDate, this.state.endDate, null));
     this.props.goTo(this.props.nextPage);
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Spinner} from "react-bootstrap";
 
 const HoverHighlightList = ({ textList, onClick, selectedText }) => (

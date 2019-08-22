@@ -14,8 +14,6 @@ class ItineraryList extends Component {
   render() {
     const { data: itinerary = {} } = this.props;
 
-    console.log(JSON.stringify(itinerary, null, 2));
-
     if (!itinerary.name) {
       this.props.goTo("landing");
       return <div>Loading...</div>;

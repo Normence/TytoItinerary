@@ -102,7 +102,6 @@ export const actionCreators = {
         if (!SAVE_ITINERARY_ENABLED) {
             return;
         }
-        console.log("Saving itinerary...");
         const itinerary = getState().itinerary;
         localStorage.setItem("itinerary", JSON.stringify(itinerary));
         dispatch({
