@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import {Spinner} from "react-bootstrap";
 
 class HoverHighlightList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>

@@ -5,7 +5,6 @@ import Avatar from 'react-avatar'
 import { actionCreators } from '../store/itineraryGrid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
-import { getISODay } from 'date-fns/esm';
 
 const timeFormatter = dateObj => {
     const H = dateObj.getHours()
@@ -87,6 +86,7 @@ const CenteredModal = props => {
                     href={`https://www.tripadvisor.com${!!props.selectedItem && props.selectedItem.link}`}
                     className='text-success'
                     target="_blank"
+                    rel="noopener noreferrer"
                     style={{ 'textDecoration': 'none' }}
                 >
                     <h3>{!!props.selectedItem && props.selectedItem.name}</h3>
@@ -95,6 +95,7 @@ const CenteredModal = props => {
                     href={`https://www.google.com/maps?q=${!!props.selectedItem && !!props.selectedItem.address && props.selectedItem.address.replace(/\s/g, '+')}`} 
                     className='text-info'
                     target="_blank"
+                    rel="noopener noreferrer"
                     style={{ 'textDecoration': 'none' }}
                 >
                     {!!props.selectedItem && props.selectedItem.address}
@@ -207,7 +208,7 @@ class ItineraryGrid extends Component {
                     selectedItem={this.state.selectedItem}
                 />
                 <div className='App-itinerary-container'>
-                    <div className='card-group' style={{"min-height":"70vh"}}>
+                    <div className='card-group' style={{"minHeight":"70vh"}}>
                         <div className='card'>
                             <div className='card-header'>{itinerary.name}</div>
                             <div className='card-body' >

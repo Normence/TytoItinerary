@@ -12,36 +12,34 @@ export const actionCreators = {
     getItinerary: () => dispatch => {
         dispatch({ type: GET_ITINERARY_REQUEST})
 
-        try {
-            Axios.get(GET_ITINERARY_API)
-                .then(response => {
-                    const itinerary = {...response.data}
+        Axios.get(GET_ITINERARY_API)
+            .then(response => {
+                const itinerary = {...response.data}
 
-                    Axios.post(GET_ITEM_INFO_API, response.data.items.map(i => i.id))
-                        .then(response => {
-                            const newItems = response.data
-                                .map(d => ({
-                                    ...d,
-                                    startTime: itinerary.items.find(od => od.id === d.id).startTime,
-                                    endTime: itinerary.items.find(od => od.id === d.id).endTime,
-                                }))
-                                .sort((firstItem, secondItem) => new Date(firstItem.startTime) - new Date(secondItem.startTime))
-                            itinerary.items = newItems
+                Axios.post(GET_ITEM_INFO_API, response.data.items.map(i => i.id))
+                    .then(response => {
+                        const newItems = response.data
+                            .map(d => ({
+                                ...d,
+                                startTime: itinerary.items.find(od => od.id === d.id).startTime,
+                                endTime: itinerary.items.find(od => od.id === d.id).endTime,
+                            }))
+                            .sort((firstItem, secondItem) => new Date(firstItem.startTime) - new Date(secondItem.startTime))
+                        itinerary.items = newItems
 
-                            dispatch({
-                                type: GET_ITINERARY_SUCCESS,
-                                payload: itinerary,
-                            })
+                        dispatch({
+                            type: GET_ITINERARY_SUCCESS,
+                            payload: itinerary,
                         })
-                        .catch(e => { throw e })
-                })
-                .catch(e => { throw e })
-        } catch (e) {
-            dispatch({ 
-                type: GET_ITINERARY_FAILURE,
-                payload: e
+                    })
+                    .catch(e => { throw e })
             })
-        }
+            .catch(e => { 
+                dispatch({ 
+                    type: GET_ITINERARY_FAILURE,
+                    payload: e
+                })
+            })
     },
     addItem: (id, startTime, endTime) => (dispatch, getState) => {
         dispatch({ type: GET_ITINERARY_REQUEST})
@@ -120,8 +118,6 @@ export const actionCreators = {
         }
         console.log("Saving itinerary...");
         const itinerary = getState().itinerary;
-        // itinerary.mockData = []
-        console.log(itinerary)
         localStorage.setItem("itinerary", JSON.stringify(itinerary));
         dispatch({
             type: SAVE_STATE,
@@ -135,7 +131,6 @@ export const actionCreators = {
             return;
         }
         const itineraryString = localStorage.getItem("itinerary")
-        console.log(itineraryString);
         let itinerary;
         if (!!itineraryString) {
             itinerary = JSON.parse(itineraryString);

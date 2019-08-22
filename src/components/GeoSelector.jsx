@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { Form, Spinner } from 'react-bootstrap'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import { Form } from 'react-bootstrap'
 import Axios from 'axios'
-import { GET_TYPEAHEAD_API} from "../helpers/APIs";
+import { GET_GEO_LIST_API } from "../helpers/APIs"
 import HoverHighlightList from './HoverHighlightList'
 import store from '../store'
 import { actionCreators as itineraryActionCreators } from '../store/itineraryGrid'
@@ -53,7 +51,7 @@ class GeoSelector extends Component {
       inputVal: query,
     });
 
-    Axios.get(`${GET_TYPEAHEAD_API}?query=${query}`)
+    Axios.get(GET_GEO_LIST_API)
       .then(result => {
         const tList = [];
         const nMap = {};
@@ -77,7 +75,7 @@ class GeoSelector extends Component {
   render() {
     return(
       <div className="card _geoSelector mb-3">
-        <h2 style={{"text-align": "center", 'marginBottom': 10}}>Select Your Destination</h2>
+        <h2 style={{"textAlign": "center", 'marginBottom': 10}}>Select Your Destination</h2>
         <Form>
           <Form.Group>
             <Form.Control 

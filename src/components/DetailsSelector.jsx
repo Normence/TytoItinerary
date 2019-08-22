@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Form} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import DatePicker from "react-datepicker/es";
 import store from '../store'
 import { actionCreators as itineraryActionCreators } from '../store/itineraryGrid'
@@ -24,7 +24,7 @@ class DetailsSelector extends Component {
     return(
       <div className="card _selector _detailsSelector">
         <div className="card-body">
-          <h2 style={{"text-align":"center"}}>Enter Details</h2>
+          <h2 style={{"textAlign":"center"}}>Enter Details</h2>
           <form>
             <div>
               <label htmlFor="tripName">Trip Name</label>

@@ -56,9 +56,7 @@ class UserGroup extends Component {
               <EditItineraryModal
                 show={this.state.editItineraryModalShown}
                 onHide={() => this.setState({ editItineraryModalShown: false })}
-                onSave={(name, startDate, endDate) => {
-                  editItinerary(name, startDate, endDate);
-                }}
+                onSave={(name, startDate, endDate) => editItinerary(name, startDate, endDate)}
               />
               <div className='App-usergroup'>
                   <div>

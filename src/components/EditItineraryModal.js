@@ -16,14 +16,14 @@ export class EditItineraryModal extends Component {
     }
 
     render() {
-        const { data, onHide, onSave } = this.props
+        const { data, onHide, onSave, dispatch, ...rest } = this.props
 
         const getStartDate = () => this.state.startDate || new Date(data.startDate) || new Date()
         const getEndDate = () => this.state.endDate || new Date(data.endDate) || new Date()
 
         return (
             <Modal
-                {...this.props}
+                {...rest}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
@@ -37,7 +37,7 @@ export class EditItineraryModal extends Component {
                     <form>
                         <GeoSelector /> 
                         <div className="form-group">
-                            <label for="itineraryName">Itinerary Name</label>
+                            <label htmlFor="itineraryName">Itinerary Name</label>
                             <input 
                                 type="text" 
                                 className="form-control"
@@ -47,8 +47,8 @@ export class EditItineraryModal extends Component {
                                 onChange={e => this.setState({ name: e.target.value })}
                             />
                         </div>
-                        <div class="form-group">
-                            <label for="startDate">Start Date</label>
+                        <div className="form-group">
+                            <label htmlFor="startDate">Start Date</label>
                             <div>
                                 <DatePicker
                                     className='form-control'
@@ -58,8 +58,8 @@ export class EditItineraryModal extends Component {
                                 />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="endDate">End Date</label>
+                        <div className="form-group">
+                            <label htmlFor="endDate">End Date</label>
                             <div>
                                 <DatePicker
                                     className='form-control'

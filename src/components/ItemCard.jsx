@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 import { Spinner, Image } from 'react-bootstrap'
-import Axios from 'axios';
-import { GET_ITEM_INFO_API } from '../helpers/APIs'
-import { actionCreators } from '../store/itineraryGrid.js'
-import store from '../store'
 
 class ItemCard extends Component {
   constructor(props) {
@@ -14,23 +10,9 @@ class ItemCard extends Component {
   }
 
   componentDidMount() {
-    // this.setState({
-    //   info: this.props.info
-    // })
-    const requestBody = [ this.props.id ];
-    Axios.post(GET_ITEM_INFO_API, requestBody)
-      .then(result => {
-        store.dispatch(actionCreators.mockDataItem(result.data[0]))
-        this.setState({
-          info: result.data[0]
-        });
-      })
-      .catch(err => {
-        console.error(`Error fetching info for ItemCard with id ${this.props.id}:\n${err}`);
-        this.setState({
-          error: true
-        });
-      });
+    this.setState({
+      info: this.props.info
+    })
   }
 
   render() {
@@ -49,7 +31,7 @@ class ItemCard extends Component {
               <div className='col-auto App-item-card-thumbnail'>
                 {!!this.state.info.thumbnail
                   ?
-                  <a href={`https://tripadvisor.com${this.state.info.link}`} target="_blank">
+                  <a href={`https://tripadvisor.com${this.state.info.link}`} target="_blank" rel="noopener noreferrer">
                     <Image
                       src={this.state.info.thumbnail.photoSizes[2].url}
                       style={{width:"100px",height:"100px"}}

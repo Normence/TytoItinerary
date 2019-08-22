@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
-import { Modal, Button, ButtonGroup } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 import GeoSearchList from './GeoSearchList'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import DatePicker from 'react-datepicker'
@@ -16,7 +16,6 @@ class SearchModal extends Component {
       startDate: new Date(this.props.startDate || new Date()),
       endDate: new Date(this.props.endDate || new Date()),
     };
-    this.setType(null);
   }
 
   openDateSelectFor(id) {
@@ -89,7 +88,7 @@ class SearchModal extends Component {
           </Modal.Header>
           <Modal.Body 
             className='p-5' 
-            style={{ "max-height": "80vh", "overflow-y": "scroll", "min-height": "51vh" }}
+            style={{ "max-height": "80vh", "overflow-y": "scroll", "minHeight": "51vh" }}
           >
             <form>
               <div class="form-group">
@@ -171,10 +170,6 @@ class CustomItemInput extends Component {
 }
 
 class TypeSelector extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const options = ["Hotels", "Restaurants", "Experiences", "Import!"];
     return(
@@ -184,10 +179,6 @@ class TypeSelector extends Component {
 }
 
 class AddItemButton extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { id, onAdd } = this.props
 

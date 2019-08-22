@@ -27,6 +27,14 @@ export default class App extends Component {
     });
   }
 
+  componentDidMount() {
+    this.state.page === 'landing' 
+      && store.getState().itinerary.data.name 
+      && this.setState({
+        page: DISPLAY_PAGE
+      })
+  }
+
   render() {
     return (
       <Provider store={store}>
@@ -40,12 +48,6 @@ export default class App extends Component {
               (() => {
                 switch (this.state.page) {
                   case "landing":
-                    if (store.getState().itinerary.data.name) {
-                      this.setState({
-                        page: DISPLAY_PAGE
-                      });
-                      return;
-                    }
                     return(
                       <div className="row justify-content-center">
                         <div className="col col-sm-10 col-md-8 col-lg-6">
@@ -80,7 +82,7 @@ export default class App extends Component {
                       <div style={{"text-align":"center"}}>
                         <h1>Error</h1>
                         <p>Unknown page.</p>
-                        <p><a href="#" onClick={this.goTo("landing")}>Go home.</a></p>
+                        <p><a href="/" onClick={this.goTo("landing")}>Go home.</a></p>
                       </div>
                     );
                 }

@@ -6,13 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 import ItemCard from "./ItemCard";
 
-const IS_PRINT_ONLY = true;
-
 class ItineraryList extends Component {
-  constructor(props){
-    super(props)
-  }
-
   componentDidMount() {
     document.title = this.props.data.name;
   }
