@@ -34,10 +34,12 @@ export class EditItineraryModal extends Component {
                         <span className="ml-3">Edit Itinerary</span>
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body className='p-5'>
+                <Modal.Body>
                     <form>
-                        <GeoSelector /> 
-                        <div className="form-group">
+                        <div className="col-auto">
+                            <GeoSelector />
+                        </div>
+                        <div className="form-group col-6">
                             <label htmlFor="itineraryName">Itinerary Name</label>
                             <input 
                                 type="text" 
@@ -48,7 +50,7 @@ export class EditItineraryModal extends Component {
                                 onChange={e => this.setState({ name: e.target.value })}
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="form-group col-6">
                             <label htmlFor="startDate">Start Date</label>
                             <div>
                                 <DatePicker
@@ -59,7 +61,7 @@ export class EditItineraryModal extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group col-6">
                             <label htmlFor="endDate">End Date</label>
                             <div>
                                 <DatePicker

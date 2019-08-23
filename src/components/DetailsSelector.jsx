@@ -5,9 +5,10 @@ import store from '../store'
 import { actionCreators as itineraryActionCreators } from '../store/itineraryGrid'
 
 class DetailsSelector extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  state = {
+    startDate: new Date(),
+    endDate: new Date(),
+    tripName: '',
   }
 
   componentDidMount() {
@@ -15,7 +16,7 @@ class DetailsSelector extends Component {
   }
 
   saveAndContinue() {
-    store.dispatch(itineraryActionCreators.editItinerary(this.state.tripName, this.state.startDate, this.state.endDate, null));
+    store.dispatch(itineraryActionCreators.editItinerary(this.state.tripName || 'My Wonderful Trip', this.state.startDate, this.state.endDate, null));
     this.props.goTo(this.props.nextPage);
   }
 
@@ -34,6 +35,7 @@ class DetailsSelector extends Component {
                 className="form-control"
                 placeholder="Trip name..."
                 onChange={e => this.setState({tripName: e.target.value})}
+                style={{ maxWidth: '33%'}}
               />
               <br />
             </div>
