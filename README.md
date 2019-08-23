@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2a4f70d0-cf49-41d3-8619-31f47a802852/deploy-status)](https://app.netlify.com/sites/tytoitinerary/deploys)
----
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
